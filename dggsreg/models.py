@@ -16,7 +16,7 @@ class DGGSReg(models.Model):
     basepoly = models.ForeignKey(Concept, related_name='basepoly',verbose_name="Base Polyhedron Type")
     basepoly_ref = models.CharField(max_length=1000, verbose_name="Base Polyhedron Reference Point", help_text='Reference point location of primary face of base polyhedron (as 3D point in WKT syntax)')
     refmodel = models.ForeignKey(Concept, related_name='refmodel',verbose_name="Earth Reference Model",help_text='Reference Model for the Earth (or other planetary body)')
-    refines = models.ForeignKey('DGGSReg', related_name='refines_grid', verbose_name="")
+    refines = models.ForeignKey('DGGSReg', null=True, blank=True,related_name='refines_grid', verbose_name="")
     refinement_level = 0
     refinement_ratio = models.PositiveSmallIntegerField(default=9, help_text='refinement ratio of DGGS tesselations (e.g. 1:4, 1:9 etc...)')
     tessellation_method = models.ForeignKey(Concept, related_name='polyhedralTessellation',verbose_name="Tessellation Method",help_text='Tessellation method used')
@@ -38,7 +38,7 @@ class DGGSReg(models.Model):
     def __unicode__(self):
         return ( self.name )
     
-    def clean(self):
+    def clean(self,*args,**kwargs):
         
         """
     
@@ -47,7 +47,52 @@ class DGGSReg(models.Model):
         """
         pass
 
-class DGGSConformanceTests(models.Model):
+    def save(self,*args,**kwargs):  
+        # save first - to make file available
+        # import pdb; pdb.set_trace()
+        super(DGGSReg, self).save(*args,**kwargs)
+        import pdb; pdb.set_trace()
+        reqsfound = self.dggsconformancetest_set.values_list('requirement__id', flat=True)
+        missingreqs = DGGSRequirement.objects.exclude(id__in=reqsfound)
+        for req in missingreqs:
+            DGGSConformanceTest.objects.create(requirement=req, dggs=self, status='UNKNOWN')
+        """
+    
+        check that parent dggs tesselation/grid is not it's own parent
+        - calculate refinement level of the tessellation
+        """
+        pass
+        
+TEST_STATUS = (
+    ('UNKNOWN', 'Unknown') ,
+    ('PASS', 'Passes') , 
+    ('FAIL', 'Fails/Does not comply') ,
+) 
+
+@python_2_unicode_compatible
+class DGGSRequirement(models.Model):
+    """ register of requirements and supporting resources """
+    requirement = models.URLField(max_length=100,default='http://www.opengis.net/spec/DGGS/1.0/req/core/XXX',verbose_name='Normative id (URL) of requirement', help_text='Will link to OGC rtequirmenrs model for specs in future')
+    name = models.CharField(max_length=100,help_text='Name')
+    reference = models.URLField(max_length=100,verbose_name='Link to normative resource', help_text='points to a file or directory of test resources used')
+
+    def __str__(self):
+        return (self.name)
+        
+@python_2_unicode_compatible   
+class DGGSConformanceTest(models.Model):
+    """ model to register a conformance test """
+    requirement= models.ForeignKey(DGGSRequirement,verbose_name="Requirement tested")
+    dggs = models.ForeignKey(DGGSReg,verbose_name="DGGS tested")
+    status = models.CharField(max_length=100,choices=TEST_STATUS, default='UNKNOWN', help_text='test status')
+    notes = models.TextField(max_length=2000, blank=True, null=True )
+    test_resource = models.URLField(max_length=100,blank=True, null=True ,verbose_name='Link tp resources used', help_text='points to a file or directory of test resources used')
+  
+    def __str__(self):
+        return ( " - ".join((self.requirement.name,self.dggs.name)))
+        
+"""
+    applies_to = models.CharField(max_length=100,help_text='type of DGGS conformance test applies to', choices=CONFORMANCE_SCOPE)
     req_1_core_data_model = models.CharField(max_length=100,help_text='req_1_core_data_model')
     req_2_referenceframe_refmodelequalarea = models.CharField(max_length=100,help_text='req_2_referenceframe_refmodelequalarea')
     req_3_referenceframe_overlap = models.CharField(max_length=100,help_text='req_3_referenceframe_overlap')
@@ -66,7 +111,4 @@ class DGGSConformanceTests(models.Model):
     req_16_functionalalgorithms_spatialanalysis = models.CharField(max_length=100,help_text='req_16_functionalalgorithms_spatialanalysis')
     req_17_functionalalgorithms_queryoperations = models.CharField(max_length=100,help_text='req_17_functionalalgorithms_queryoperations')
     req_18_functionalalgorithms_broadcastoperations = models.CharField(max_length=100,help_text='req_18_functionalalgorithms_broadcastoperations')
-    
-    
-    def __str__(self):
-        return (self.name)
+"""

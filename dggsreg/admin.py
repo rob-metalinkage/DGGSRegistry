@@ -4,9 +4,12 @@ from dggsreg.models import *
 from skosxl.admin import *
 from django.utils.translation import ugettext_lazy as _
 
-
+class DGGSConformanceTestsInline(admin.TabularInline):
+    model=DGGSConformanceTest
+    pass
     
 class DGGSRegAdmin(admin.ModelAdmin):
+    inlines= [ DGGSConformanceTestsInline, ]
     def get_form(self, request, obj=None, **kwargs):
         form = super(DGGSRegAdmin, self).get_form(request, obj, **kwargs)
 
@@ -16,10 +19,14 @@ class DGGSRegAdmin(admin.ModelAdmin):
         form.base_fields['tessellation_method'].queryset = Concept.objects.filter(scheme__uri=TESSELLATION_CODELIST)
         return form
 
-class DGGSConformanceTestsAdmin(admin.ModelAdmin):
-    def get_form(self, request, obj=None, **kwargs):
-        pass
- 
+class DGGSConformanceTestAdmin(admin.ModelAdmin):
+    pass
+
+class DGGSRequirementAdmin(admin.ModelAdmin):
+    pass
+        
 admin.site.register(DGGSReg, DGGSRegAdmin)
-admin.site.register(DGGSConformanceTests, DGGSRegAdmin)
+admin.site.register(DGGSConformanceTest, DGGSConformanceTestAdmin)
+admin.site.register(DGGSRequirement,DGGSRequirementAdmin)
+
 
