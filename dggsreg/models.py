@@ -4,6 +4,8 @@ from django.db import models
 
 from skosxl.models import *
 
+from django.utils.encoding import python_2_unicode_compatible
+
 DEFS_BASE='https://www.opengis.net/def/dggs/code/'
 BASEPOLYHEDRON_CODELIST="".join((DEFS_BASE,"basepoly"))
 REFMODEL_CODELIST="".join((DEFS_BASE,"refmodel"))
