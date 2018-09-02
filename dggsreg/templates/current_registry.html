@@ -1,0 +1,116 @@
+{% extends "dggs_reg_base.html" %}
+
+
+{% block title %}
+<title>OGC DGGS Registry | Current Registry</title>
+{% endblock title %}
+
+{% block content %}
+<h2>Current DGGS Registry</h2>
+{% if dggs_registry_list %}
+	<table class="content_table">
+	<thead class="content_table">
+	<th class="content_table">DGGS Name</th>
+	<th class="content_table">Base Polyhedron</th>
+	<th class="content_table">Base Polyhedron Reference</th>
+	<th class="content_table">Earth Reference Model</th>
+	<th class="content_table">Cell Refinement Ratio</th>
+	<th class="content_table">DGGS uri</th>
+	<th class="content_table">DGGS Tessellations</th>
+	</thead>
+	{% for item in dggs_registry_list %}
+		
+		<tr class="content_table">
+		
+		<tr class="content_table">
+			<td class="content_table">{{ item.name }}</td>
+			<td class="content_table">{{ item.basepoly }}</td>
+			<td class="content_table">{{ item.basepoly_ref }}</td>
+			<td class="content_table">{{ item.refmodel }}</td>
+			<td class="content_table">{{ item.refinement_ratio }}</td>
+			<td class="content_table">{{ item.uri }}</td>
+		
+			<td >
+			<table class="tessellation_table">
+				<thead class="tessellation_table">
+				<th class="tessellation_table">Refinement Level</th>
+				<th class="tessellation_table">Cell Type</th>
+				<th class="tessellation_table">Cell Edge Type</th>
+				<th class="tessellation_table">Number of Cells</th>
+				<th class="tessellation_table">Cell Area</th>
+				<th class="tessellation_table">Cell Area Precision</th>
+				</thead>
+				{% for level in item.dggstessellation_set %}
+				<tr class="tessellation_table">
+					<td class="tessellation_table"> {{ level.refinement_level }} </td>
+					<td class="tessellation_table"> {{ level.celltype }} </td>
+					<td class="tessellation_table"> {{ level.celledgetype }} </td>
+					<td class="tessellation_table"> {{ level.number_of_cells }} </td>
+					<td class="tessellation_table"> {{ level.cellarea }} </td>
+					<td class="tessellation_table"> {{ level.cellarea_precision }} </td>
+				</tr>				
+				{% endfor %}			
+			</table>	
+			</td>	
+		</tr>
+		</tr>
+    {% endfor %}
+	</table>
+	
+	
+	<hr>
+	
+	
+	<table class="content_table">
+	<thead class="content_table">
+	<th class="content_table">DGGS Name</th>
+	<th class="content_table">Conformance Test A.1.1</th>
+	<th class="content_table">Conformance Test A.1.2</th>
+	<th class="content_table">Conformance Test A.1.3</th>
+	<th class="content_table">Conformance Test A.1.4</th>
+	<th class="content_table">Conformance Test A.1.5</th>
+	<th class="content_table">Conformance Test A.1.6</th>
+	<th class="content_table">Conformance Test A.1.7</th>
+	<th class="content_table">Conformance Test A.1.8</th>
+	<th class="content_table">Conformance Test A.1.9</th>
+	<th class="content_table">Conformance Test A.1.10</th>
+	<th class="content_table">Conformance Test A.1.11</th>
+	<th class="content_table">Conformance Test A.1.12</th>
+	<th class="content_table">Conformance Test A.1.13</th>
+	<th class="content_table">Conformance Test A.1.14</th>
+	<th class="content_table">Conformance Test A.1.15</th>
+	<th class="content_table">Conformance Test A.1.16</th>
+	<th class="content_table">Conformance Test A.1.17</th>
+	<th class="content_table">Conformance Test A.1.18</th>
+	</thead>
+	{% for item in dggs_registry_list %}		
+		<tr class="content_table">
+		<td class="content_table"> {{ item.name }} </td>	
+			{% for test in item.dggsconformancetest_set %}
+				<td class="content_table">
+				<table class="tessellation_table">
+				<thead class="tessellation_table">
+					<th class="tessellation_table">Status</th>
+					<th class="tessellation_table">Notes</th>
+				</thead>
+				<tbody class="tessellation_table">
+				
+				</tbody>
+				<td class="tessellation_table"> {{ test.status }} </td>
+				<td class="tessellation_table"> {{ test.notes }} </td>
+						
+				</table>	
+				</td>						
+			{% endfor %}
+		</tr>
+    {% endfor %}
+	</table>
+	
+{% else %}
+	<p class="centre">No DGGS Entries Available.</p>
+{% endif %}
+<hr>
+
+{% endblock content %}
+
+

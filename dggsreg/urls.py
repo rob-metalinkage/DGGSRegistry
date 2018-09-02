@@ -16,8 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import url, include
+from . import views
 
 urlpatterns = [
+    url(r'^dggs_registry$', views.dggs_registry, name='dggs_registry'),
     url(r'^admin/', admin.site.urls),
 ]
 

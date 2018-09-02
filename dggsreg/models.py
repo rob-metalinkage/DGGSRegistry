@@ -10,24 +10,59 @@ DEFS_BASE='https://www.opengis.net/def/dggs/code/'
 BASEPOLYHEDRON_CODELIST="".join((DEFS_BASE,"basepoly"))
 REFMODEL_CODELIST="".join((DEFS_BASE,"refmodel"))
 CELLTYPE_CODELIST="".join((DEFS_BASE,"celltype"))
+EDGETYPE_CODELIST="".join((DEFS_BASE,"celledgetype"))
 TESSELLATION_CODELIST="".join((DEFS_BASE,"tessellationmethod"))
 
 class DGGSReg(models.Model):
     uri = models.URLField(help_text=u'URI identifying the DGGS')
-    name = models.CharField(max_length=100,help_text=u'Display name')
-    basepoly = models.ForeignKey(Concept, related_name='basepoly',verbose_name="Base Polyhedron Type")
-    basepoly_ref = models.CharField(max_length=1000, verbose_name="Base Polyhedron Reference Point", help_text='Reference point location of primary face of base polyhedron (as 3D point in WKT syntax)')
-    refmodel = models.ForeignKey(Concept, related_name='refmodel',verbose_name="Earth Reference Model",help_text='Reference Model for the Earth (or other planetary body)')
-    refines = models.ForeignKey('DGGSReg', null=True, blank=True,related_name='refines_grid', verbose_name="")
-    refinement_level = 0
-    refinement_ratio = models.PositiveSmallIntegerField(default=9, help_text='refinement ratio of DGGS tesselations (e.g. 1:4, 1:9 etc...)')
-    tessellation_method = models.ForeignKey(Concept, related_name='polyhedralTessellation',verbose_name="Tessellation Method",help_text='Tessellation method used')
+    name = models.CharField(max_length=100,
+                            help_text=u'Display name')
+    basepoly = models.ForeignKey(Concept, 
+                                 related_name='basepoly',
+                                 verbose_name="Base Polyhedron Type")
+    basepoly_ref = models.CharField(max_length=1000, 
+                                    verbose_name="Base Polyhedron Reference Point", 
+                                    help_text='Reference point location of primary face of base polyhedron (as 3D point in WKT syntax)')
+    refmodel = models.ForeignKey(Concept, 
+                                 related_name='refmodel',
+                                 verbose_name="Earth Reference Model",
+                                 help_text='Reference Model for the Earth (or other planetary body)')
+    #===========================================================================
+    # refines = models.ForeignKey('DGGSReg', 
+    #                             null=True, 
+    #                             blank=True,
+    #                             related_name='refines_grid', 
+    #                             verbose_name="refines_grid")
+    #===========================================================================
+    #===========================================================================
+    # refinement_level = 0
+    #===========================================================================
+    refinement_ratio = models.PositiveSmallIntegerField(default=9, 
+                                                        help_text='refinement ratio of DGGS tesselations (e.g. 1:4, 1:9 etc...)')
+    tessellation_method = models.ForeignKey(Concept, 
+                                            related_name='polyhedralTessellation',
+                                            verbose_name="Tessellation Method",
+                                            help_text='Tessellation method used')
+    #===========================================================================
+    # celltype1= models.ForeignKey(Concept, 
+    #                             related_name='celltype2',
+    #                             verbose_name="Cell Type")
+    #===========================================================================
     
-    celltype= models.ForeignKey(Concept, related_name='celltype',verbose_name="Cell Type")
-    cellarea = models.FloatField(help_text='cell area for each level of refinement')
-    cellarea_precision = models.FloatField(help_text='cell area precision for each level of refinement')
-    
-    cellequalarea = models.BooleanField(default=True, verbose_name="Cells have equal area", help_text="""
+    #===========================================================================
+    # celltype= models.ForeignKey(Concept, 
+    #                             related_name='celltype',
+    #                             verbose_name="Cell Type")
+    # celledgetype= models.ForeignKey(Concept, 
+    #                             related_name='celledgetype',
+    #                             verbose_name="Cell Edge Type")
+    # cellarea = models.FloatField(help_text='cell area for each level of refinement')
+    # cellarea_precision = models.FloatField(help_text='cell area precision for each level of refinement')
+    # 
+    #===========================================================================
+    cellequalarea = models.BooleanField(default=True, 
+                                        verbose_name="Cells have equal area", 
+                                        help_text="""
         If the DGGS implementation is more complex and has multiple classes of cell type where each cell in each class is equal area, 
         but each class has a different cell area (e.g. a Hexagonal refinement of an icosahedron will,
         in most cases, yield both hexagons and 12 pentagons centred on the vertices of the icosahedron 
@@ -36,9 +71,11 @@ class DGGSReg(models.Model):
         (which can accommodate this complication); or, we show a more detailed breakdown of each cell type class 
         and how they relate to each other in terms of fixed areal difference.""" )
     
-        
     def __unicode__(self):
         return ( self.name )
+    
+    def __str__(self):
+        return self.name
     
     def clean(self,*args,**kwargs):
         
@@ -51,13 +88,14 @@ class DGGSReg(models.Model):
 
     def save(self,*args,**kwargs):  
         # save first - to make file available
-        # import pdb; pdb.set_trace()
         super(DGGSReg, self).save(*args,**kwargs)
-        import pdb; pdb.set_trace()
-        reqsfound = self.dggsconformancetest_set.values_list('requirement__id', flat=True)
-        missingreqs = DGGSRequirement.objects.exclude(id__in=reqsfound)
-        for req in missingreqs:
-            DGGSConformanceTest.objects.create(requirement=req, dggs=self, status='UNKNOWN')
+        
+        #=======================================================================
+        # reqsfound = self.dggsconformancetest_set.values_list('requirement__id', flat=True)
+        # missingreqs = DGGSRequirement.objects.exclude(id__in=reqsfound)
+        # for req in missingreqs:
+        #     DGGSConformanceTest.objects.create(requirement=req, dggs=self, status='UNKNOWN')
+        #=======================================================================
         """
     
         check that parent dggs tesselation/grid is not it's own parent
@@ -80,6 +118,10 @@ class DGGSRequirement(models.Model):
 
     def __str__(self):
         return (self.name)
+    
+    def __unicode__(self):
+        return ( self.name )
+    
         
 @python_2_unicode_compatible   
 class DGGSConformanceTest(models.Model):
@@ -92,6 +134,10 @@ class DGGSConformanceTest(models.Model):
   
     def __str__(self):
         return ( " - ".join((self.requirement.name,self.dggs.name)))
+    
+    def __unicode__(self):
+        return ( " - ".join((self.requirement.name,self.dggs.name)))
+    
         
 """
     applies_to = models.CharField(max_length=100,help_text='type of DGGS conformance test applies to', choices=CONFORMANCE_SCOPE)
@@ -114,3 +160,27 @@ class DGGSConformanceTest(models.Model):
     req_17_functionalalgorithms_queryoperations = models.CharField(max_length=100,help_text='req_17_functionalalgorithms_queryoperations')
     req_18_functionalalgorithms_broadcastoperations = models.CharField(max_length=100,help_text='req_18_functionalalgorithms_broadcastoperations')
 """
+
+@python_2_unicode_compatible   
+class DGGSTessellation(models.Model):
+    dggs = models.ForeignKey(DGGSReg,verbose_name="DGGS tested")
+    refinement_level = models.PositiveSmallIntegerField(default=0, 
+                                                        help_text='refinement level of DGGS hierarchy (e.g. 0, 1, 2, etc...)')
+    
+    celltype= models.ForeignKey(Concept, 
+                                related_name='celltype',
+                                verbose_name="Cell Type")
+    number_of_cells = models.PositiveSmallIntegerField(default=4, 
+                                                        help_text='Number of cells of this CellType for this level in the hierarchy')
+    
+    celledgetype= models.ForeignKey(Concept, 
+                                related_name='celledgetype',
+                                verbose_name="Cell Edge Type")
+    cellarea = models.FloatField(help_text='cell area for each level of refinement')
+    cellarea_precision = models.FloatField(help_text='cell area precision for each level of refinement')
+    
+    def __str__(self):
+        return ( " - ".join((self.dggs.name, str(self.refinement_level))))
+    
+    def __unicode__(self):
+        return ( " - ".join((self.dggs.name, str(self.refinement_level))))
