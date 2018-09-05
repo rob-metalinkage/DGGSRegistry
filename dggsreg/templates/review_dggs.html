@@ -1,0 +1,200 @@
+{% extends "dggs_reg_base.html" %}
+
+
+{% block content %}
+{% if dggs_spec %}
+	<table class="content_table">
+	<tr class="content_table">
+		<th scope="col"  class="content_table">DGGS Name</th>
+		<td class="content_table">{{ dggs_spec.name }}</td>
+	</tr>
+	<tr class="content_table">
+		<th scope="col"  class="content_table">Base Polyhedron</th>
+		<td class="content_table">{{ dggs_spec.basepoly }}</td>
+	</tr>
+	<tr class="content_table">
+		<th scope="col"  class="content_table">Base Polyhedron Reference</th>
+		<td class="content_table">{{ dggs_spec.basepoly_ref }}</td>
+	</tr>
+	<tr class="content_table">
+		<th scope="col"  class="content_table">Earth Reference Model</th>
+		<td class="content_table">{{ dggs_spec.refmodel }}</td>
+	</tr>
+	<tr class="content_table">
+		<th scope="col"  class="content_table">Cell Refinement Ratio</th>
+		<td class="content_table">{{ dggs_spec.refinement_ratio }}</td>
+	</tr>
+	<tr class="content_table">
+		<th scope="col"  class="content_table">DGGS uri</th>
+		<td class="content_table">{{ dggs_spec.uri }}</td>
+	</tr>
+	<tr class="content_table">
+		<th scope="col"  class="content_table">DGGS Tessellations</th>
+		<td >
+		<table class="tessellation_table">
+		{% for level in dggs_spec.dggstessellation_set %}
+			<tr class="tessellation_table">
+			<tr class="tessellation_table">
+				<th scope="col"  class="tessellation_table">Refinement Level</th>
+				<td class="tessellation_table"> {{ level.refinement_level }} </td>
+			</tr>
+			<tr class="tessellation_table">
+				<th scope="col"  class="tessellation_table">Cell Type</th>
+				<td class="tessellation_table"> {{ level.celltype }} </td>
+			</tr>
+			<tr class="tessellation_table">
+				<th scope="col"  class="tessellation_table">Cell Edge Type</th>
+				<td class="tessellation_table"> {{ level.celledgetype }} </td>
+			</tr>
+			<tr class="tessellation_table">
+				<th scope="col"  class="tessellation_table">Number of Cells</th>
+				<td class="tessellation_table"> {{ level.number_of_cells }} </td>
+			</tr>
+			<tr class="tessellation_table">
+				<th scope="col"  class="tessellation_table">Cell Area</th>
+				<td class="tessellation_table"> {{ level.cellarea }} </td>
+			</tr>
+			<tr class="tessellation_table">
+				<th scope="col"  class="tessellation_table">Cell Area Precision</th>
+				<td class="tessellation_table"> {{ level.cellarea_precision }} </td>
+			</tr>
+			</tr>			
+		{% endfor %}			
+		</table>	
+		</td>	
+	</tr>
+	</table>
+	
+	<form class="form-horizontal" method="POST" action="">
+    {% csrf_token %}
+   
+    
+    
+	{{ formset.management_form }}
+	<table class="content_table">	
+
+
+	{% for form in formset %}
+		<tr  class="content_table">
+		<td  class="content_table">
+		<div class="row form-row spacer">
+			<div class="input-group">
+				
+						<table >
+						<tr>
+							<td>DGGS Conformance Test:</td>
+							<td>
+								<div class="input-group-append">
+                					<button class="btn btn-success add-form-row">+</button>
+            					</div>
+							</td>		
+						</tr>		
+						</table>
+				
+    					<table class="tessellation_table">
+    					<tr class="content_table">
+    						<th scope="col"  class="tessellation_table">{{ form.requirement.label_tag }}</th>
+    						<td class="tessellation_table">{{ form.requirement }}</td>
+    					</tr>
+    					<tr class="content_table">
+    						<th scope="col"  class="tessellation_table">{{ form.status.label_tag }}</th>
+    						<td class="tessellation_table">{{ form.status }}</td>
+    					</tr>
+    					<tr class="content_table">
+    						<th scope="col"  class="tessellation_table">{{ form.notes.label_tag }}</th>
+    						<td class="tessellation_table">{{ form.notes }}</td>
+    					</tr>
+    					<tr class="content_table">
+    						<th scope="col"  class="tessellation_table">{{ form.test_resource.label_tag }}</th>
+    						<td class="tessellation_table">{{ form.test_resource }}</td>
+    					</tr>
+    				
+    					</table>
+    		
+    
+			</div> 
+		</div>
+		</td>
+		</tr>
+	{% endfor %}
+	</table>
+
+	<div class="row spacer">
+    	<div class="col-4 offset-2">
+        	<button type="submit" class="btn btn-block btn-primary">Submit DGGS Review</button>
+    	</div>
+	</div>
+	</form>
+	
+	
+	
+{% else %}
+	<p class="centre">No DGGS Entries Available.</p>
+{% endif %}
+<hr>
+
+{% endblock %}
+
+{% block container %}
+
+{% endblock %}
+
+
+bla
+{% block custom_js %}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script type="text/javascript">
+function updateElementIndex(el, prefix, ndx) {
+    var id_regex = new RegExp('(' + prefix + '-\\d+)');
+    var replacement = prefix + '-' + ndx;
+    if ($(el).attr("for")) $(el).attr("for", $(el).attr("for").replace(id_regex, replacement));
+    if (el.id) el.id = el.id.replace(id_regex, replacement);
+    if (el.name) el.name = el.name.replace(id_regex, replacement);
+}
+function cloneMore(selector, prefix) {
+    var newElement = $(selector).clone(true);
+    var total = $('#id_' + prefix + '-TOTAL_FORMS').val();
+    newElement.find(':input').each(function() {
+        var name = $(this).attr('name')
+        if(name) {
+            name = name.replace('-' + (total-1) + '-', '-' + total + '-');
+            var id = 'id_' + name;
+            $(this).attr({'name': name, 'id': id}).val('').removeAttr('checked');
+        }
+    });
+    total++;
+    $('#id_' + prefix + '-TOTAL_FORMS').val(total);
+    $(selector).after(newElement);
+    var conditionRow = $('.form-row:not(:last)');
+    conditionRow.find('.btn.add-form-row')
+    .removeClass('btn-success').addClass('btn-danger')
+    .removeClass('add-form-row').addClass('remove-form-row')
+    .html('-');
+    return false;
+}
+function deleteForm(prefix, btn) {
+    var total = parseInt($('#id_' + prefix + '-TOTAL_FORMS').val());
+    if (total > 1){
+        btn.closest('.form-row').remove();
+        var forms = $('.form-row');
+        $('#id_' + prefix + '-TOTAL_FORMS').val(forms.length);
+        for (var i=0, formCount=forms.length; i<formCount; i++) {
+            $(forms.get(i)).find(':input').each(function() {
+                updateElementIndex(this, prefix, i);
+            });
+        }
+    }
+    return false;
+}
+$(document).on('click', '.add-form-row', function(e){
+    e.preventDefault();
+    cloneMore('.form-row:last', 'form');
+    return false;
+});
+$(document).on('click', '.remove-form-row', function(e){
+    e.preventDefault();
+    deleteForm('form', $(this));
+    return false;
+});
+</script>
+{% endblock %}

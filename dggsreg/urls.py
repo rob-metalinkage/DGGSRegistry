@@ -20,6 +20,12 @@ from . import views
 
 urlpatterns = [
     url(r'^dggs_registry$', views.dggs_registry, name='dggs_registry'),
+    url(r'^submit_new_dggs$', views.submit_new_dggs, name='submit_new_dggs'),
+    url(r'^submit_new_dggs_success$', views.submit_new_dggs_success, name='submit_new_dggs_success'),
+    url(r'^review_dggs_spec$', views.select_dggs_spec, name='select_dggs_spec'),
+    url(r'^review_dggs_spec/(?P<id>\w+)/$', views.review_dggs_spec, name='review_dggs_spec'),
+    url(r'^review_dggs_spec_complete$', views.review_dggs_spec_complete, name='review_dggs_spec_complete'),
+    
     url(r'^admin/', admin.site.urls),
 ]
 

@@ -62,48 +62,36 @@
 	
 	
 	<table class="content_table">
-	<thead class="content_table">
-	<th class="content_table">DGGS Name</th>
-	<th class="content_table">Conformance Test A.1.1</th>
-	<th class="content_table">Conformance Test A.1.2</th>
-	<th class="content_table">Conformance Test A.1.3</th>
-	<th class="content_table">Conformance Test A.1.4</th>
-	<th class="content_table">Conformance Test A.1.5</th>
-	<th class="content_table">Conformance Test A.1.6</th>
-	<th class="content_table">Conformance Test A.1.7</th>
-	<th class="content_table">Conformance Test A.1.8</th>
-	<th class="content_table">Conformance Test A.1.9</th>
-	<th class="content_table">Conformance Test A.1.10</th>
-	<th class="content_table">Conformance Test A.1.11</th>
-	<th class="content_table">Conformance Test A.1.12</th>
-	<th class="content_table">Conformance Test A.1.13</th>
-	<th class="content_table">Conformance Test A.1.14</th>
-	<th class="content_table">Conformance Test A.1.15</th>
-	<th class="content_table">Conformance Test A.1.16</th>
-	<th class="content_table">Conformance Test A.1.17</th>
-	<th class="content_table">Conformance Test A.1.18</th>
-	</thead>
-	{% for item in dggs_registry_list %}		
-		<tr class="content_table">
-		<td class="content_table"> {{ item.name }} </td>	
-			{% for test in item.dggsconformancetest_set %}
-				<td class="content_table">
+	<tr>
+		<td></td>
+		{% for item in dggs_registry_list %}
+			<th class="content_table"> {{ item.name }} </th>
+		{% endfor %}
+	</tr>
+	{% for test in requirements_list %}
+	<tr>
+		<th scope="col"  class="content_table">{{ test }}</th>
+		{% for item in dggs_registry_list %}
+			{% for conf_test in item.dggsconformancetest_set %}
+			{% if conf_test.requirement == test %}
+			<td class="content_table">
 				<table class="tessellation_table">
-				<thead class="tessellation_table">
-					<th class="tessellation_table">Status</th>
-					<th class="tessellation_table">Notes</th>
-				</thead>
-				<tbody class="tessellation_table">
-				
-				</tbody>
-				<td class="tessellation_table"> {{ test.status }} </td>
-				<td class="tessellation_table"> {{ test.notes }} </td>
+					<thead class="tessellation_table">
+						<th class="tessellation_table">Status</th>
+						<th class="tessellation_table">Notes</th>
+					</thead>
+					<td class="tessellation_table"> {{ conf_test.status }} </td>
+					<td class="tessellation_table"> {{ conf_test.notes }} </td>
 						
 				</table>	
-				</td>						
+			</td>
+			
+			{% endif %}
 			{% endfor %}
-		</tr>
-    {% endfor %}
+		{% endfor %}	
+	</tr>					
+	{% endfor %}
+	
 	</table>
 	
 {% else %}

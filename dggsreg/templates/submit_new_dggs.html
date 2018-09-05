@@ -1,0 +1,197 @@
+{% extends "dggs_reg_base.html" %}
+
+
+{% block content %}
+{% endblock %}
+
+{% block container %}
+<form class="form-horizontal" method="POST" action="">
+    {% csrf_token %}
+{{ formset.management_form }}
+<table class="content_table">	
+<tr >
+	<td >
+		
+	<table class="content_table">
+		<tr class="content_table">
+			<th scope="col"  class="content_table">
+			{{ dggs_specs_form.uri.label_tag }}
+			</th>
+			<td class="content_table">
+			{{ dggs_specs_form.uri }}
+			</td>
+		</tr>
+		<tr class="content_table">
+			<th scope="col"  class="content_table">
+			{{ dggs_specs_form.name.label_tag }}
+			</th>
+			<td class="content_table">
+			{{ dggs_specs_form.name }}
+			</td>
+		</tr>
+		<tr class="content_table">
+			<th scope="col"  class="content_table">
+			{{ dggs_specs_form.basepoly.label_tag }}
+			</th>
+			<td class="content_table">
+			{{ dggs_specs_form.basepoly }}
+			</td>
+		</tr>
+		<tr class="content_table">
+			<th scope="col"  class="content_table">
+			{{ dggs_specs_form.basepoly_ref.label_tag }}
+			</th>
+			<td class="content_table">
+			{{ dggs_specs_form.basepoly_ref }}
+			</td>
+		</tr>
+		<tr class="content_table">
+			<th scope="col"  class="content_table">
+			{{ dggs_specs_form.refmodel.label_tag }}
+			</th>
+			<td class="content_table">
+			{{ dggs_specs_form.refmodel }}
+			</td>
+		</tr>
+		<tr class="content_table">
+			<th scope="col"  class="content_table">
+			{{ dggs_specs_form.refinement_ratio.label_tag }}
+			</th>
+			<td class="content_table">
+			{{ dggs_specs_form.refinement_ratio }}
+			</td>
+		</tr>
+		<tr class="content_table">
+			<th scope="col"  class="content_table">
+			{{ dggs_specs_form.tessellation_method.label_tag }}
+			</th>
+			<td class="content_table">
+			{{ dggs_specs_form.tessellation_method }}
+			</td>
+		</tr>
+		</table>
+
+	</td>
+</tr>
+
+{% for form in formset %}
+	<input type='hidden' id='{{ form.dggs.label_tag }}' name='{{ form.dggs.label_tag }}' value='{{ dggsform.name }}'>
+	<tr  class="content_table">
+	<td  class="content_table">
+	<div class="row form-row spacer">
+	<div class="input-group">
+		<table >
+		<tr>
+			<td>DGGS Tessellation:</td>
+			<td>
+			<div class="input-group-append">
+                <button class="btn btn-success add-form-row">+</button>
+            </div>
+			</td>		
+		</tr>		
+		</table>
+            
+            
+        
+    	<table class="tessellation_table">
+    	<tr class="content_table">
+    		<th scope="col"  class="tessellation_table">{{ form.refinement_level.label_tag }}</th>
+    		<td class="tessellation_table">{{ form.refinement_level }}</td>
+    	</tr>
+    	<tr class="content_table">
+    		<th scope="col"  class="tessellation_table">{{ form.celltype.label_tag }}</th>
+    		<td class="tessellation_table">{{ form.celltype }}</td>
+    	</tr>
+    	<tr class="content_table">
+    		<th scope="col"  class="tessellation_table">{{ form.celledgetype.label_tag }}</th>
+    		<td class="tessellation_table">{{ form.celledgetype }}</td>
+    	</tr>
+    	<tr class="content_table">
+    		<th scope="col"  class="tessellation_table">{{ form.number_of_cells.label_tag }}</th>
+    		<td class="tessellation_table">{{ form.number_of_cells }}</td>
+    	</tr>
+    	<tr class="content_table">
+    		<th scope="col"  class="tessellation_table">{{ form.cellarea.label_tag }}</th>
+    		<td class="tessellation_table">{{ form.cellarea }}</td>
+    	</tr>
+    	<tr class="content_table">
+    		<th scope="col"  class="tessellation_table">{{ form.cellarea_precision.label_tag }}</th>
+    		<td class="tessellation_table">{{ form.cellarea_precision }}</td>
+    	</tr>
+    
+    	</table>
+
+    
+	</div> 
+	</td>
+	</tr>
+{% endfor %}
+
+</table>
+<div class="row spacer">
+    <div class="col-4 offset-2">
+        <button type="submit" class="btn btn-block btn-primary">Submit DGGS</button>
+    </div>
+</div>
+</form>
+{% endblock %}
+
+
+bla
+{% block custom_js %}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script type="text/javascript">
+function updateElementIndex(el, prefix, ndx) {
+    var id_regex = new RegExp('(' + prefix + '-\\d+)');
+    var replacement = prefix + '-' + ndx;
+    if ($(el).attr("for")) $(el).attr("for", $(el).attr("for").replace(id_regex, replacement));
+    if (el.id) el.id = el.id.replace(id_regex, replacement);
+    if (el.name) el.name = el.name.replace(id_regex, replacement);
+}
+function cloneMore(selector, prefix) {
+    var newElement = $(selector).clone(true);
+    var total = $('#id_' + prefix + '-TOTAL_FORMS').val();
+    newElement.find(':input').each(function() {
+        var name = $(this).attr('name')
+        if(name) {
+            name = name.replace('-' + (total-1) + '-', '-' + total + '-');
+            var id = 'id_' + name;
+            $(this).attr({'name': name, 'id': id}).val('').removeAttr('checked');
+        }
+    });
+    total++;
+    $('#id_' + prefix + '-TOTAL_FORMS').val(total);
+    $(selector).after(newElement);
+    var conditionRow = $('.form-row:not(:last)');
+    conditionRow.find('.btn.add-form-row')
+    .removeClass('btn-success').addClass('btn-danger')
+    .removeClass('add-form-row').addClass('remove-form-row')
+    .html('-');
+    return false;
+}
+function deleteForm(prefix, btn) {
+    var total = parseInt($('#id_' + prefix + '-TOTAL_FORMS').val());
+    if (total > 1){
+        btn.closest('.form-row').remove();
+        var forms = $('.form-row');
+        $('#id_' + prefix + '-TOTAL_FORMS').val(forms.length);
+        for (var i=0, formCount=forms.length; i<formCount; i++) {
+            $(forms.get(i)).find(':input').each(function() {
+                updateElementIndex(this, prefix, i);
+            });
+        }
+    }
+    return false;
+}
+$(document).on('click', '.add-form-row', function(e){
+    e.preventDefault();
+    cloneMore('.form-row:last', 'form');
+    return false;
+});
+$(document).on('click', '.remove-form-row', function(e){
+    e.preventDefault();
+    deleteForm('form', $(this));
+    return false;
+});
+</script>
+{% endblock %}

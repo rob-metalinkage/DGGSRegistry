@@ -8,7 +8,7 @@ from django.views.generic import (
 )
 
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import json
 from pprint import pprint
 
@@ -17,8 +17,11 @@ from .models import (
     # Era,
     # EraScheme,
     #===========================================================================
-    DGGSReg
+    DGGSReg,
+    DGGSTessellation
 )
+
+from .forms import * #TessellationModelFormset, DGGSRegForm
 
 
 #===============================================================================
@@ -71,25 +74,10 @@ from .models import (
 
 
 def dggs_registry(request):
-    dggs_registry_details = DGGSReg.objects.all() #.filter(show_record=True).exclude(date_published__gt=timezone.now()) 
-    print(dggs_registry_details)
-    print(dir(dggs_registry_details[0]))
+    dggs_registry_details = DGGSReg.objects.all() 
     
     dggs_registry_list = []
     for rec in dggs_registry_details:
-        print('---')
-        print(dir(rec.dggsconformancetest_set))
-        print(rec.dggsconformancetest_set.all()[0])
-        print(rec.dggstessellation_set.all()[0])
-        print(rec.dggstessellation_set.all()[0].refinement_level)
-        print(rec.dggstessellation_set.all()[0].celltype)
-        print(rec.dggstessellation_set.all()[0].celledgetype)
-        print(rec.dggstessellation_set.all()[0].number_of_cells)
-        print(rec.dggstessellation_set.all()[0].cellarea)
-        print(rec.dggstessellation_set.all()[0].cellarea_precision)
-        print(rec.dggsconformancetest_set.all()[0].status)
-        print(rec.dggsconformancetest_set.all()[0].notes)
-        
         dggs_entry = {'name': rec.name,
                       'basepoly': rec.basepoly,
                       'basepoly_ref': rec.basepoly_ref,
@@ -109,18 +97,124 @@ def dggs_registry(request):
                       'dggsconformancetest_set': [{'requirement': d.requirement.name,
                                                    'status': d.status,
                                                    'notes': d.notes} for d in rec.dggsconformancetest_set.all()],
-        #=======================================================================
-        # rec.dggsconformancetest_set.values_list('requirement__id', flat=True),
-        #=======================================================================
-                      #=========================================================
-                      # 'objects': rec.objects.values_list()
-                      #=========================================================
+
                       }
         pprint(dggs_entry)
         dggs_registry_list.append(dggs_entry)
-        #=======================================================================
-        # print(asdf)
-        #=======================================================================
-    context = {'dggs_registry_list': dggs_registry_list}
-    print('context:\n'+str(context))
+    
+    requirements_list = DGGSRequirement.objects.all()
+    requirements_list = [req[0] for req in list(requirements_list.values_list("name"))]
+    
+    context = {'dggs_registry_list': dggs_registry_list,
+               'requirements_list': requirements_list}
     return render(request, 'current_registry.html', context)
+
+
+
+def select_dggs_spec(request):
+    if request.method == 'GET':
+        dggs_selection_form = DGGSReg_selectionForm()
+        context = {'dggs_selection_form': dggs_selection_form}
+        return render(request, 'select_dggs_for_review.html', context)
+
+    elif request.method == 'POST':
+        dggs_spec = DGGSReg.objects.filter(id = request.POST['dggs_comboBox'])
+        
+        return redirect('review_dggs_spec', id=dggs_spec[0].id) 
+    
+    
+def review_dggs_spec(request, id=0):
+    if request.method == 'GET':
+        dggs_spec = DGGSReg.objects.filter(id = id)
+        
+        dggs_entry = {'name': dggs_spec[0].name,
+                      'basepoly': dggs_spec[0].basepoly,
+                      'basepoly_ref': dggs_spec[0].basepoly_ref,
+                      
+                      'cellequalarea': dggs_spec[0].cellequalarea,
+                      
+                      'refmodel': dggs_spec[0].refmodel,
+                      
+                      'refinement_ratio': dggs_spec[0].refinement_ratio,
+                      'uri': dggs_spec[0].uri,
+                      'dggstessellation_set': [{'refinement_level': d.refinement_level,
+                                                   'celltype': d.celltype,
+                                                   'celledgetype': d.celledgetype,
+                                                   'number_of_cells': d.number_of_cells,
+                                                   'cellarea': d.cellarea,
+                                                   'cellarea_precision': d.cellarea_precision} for d in dggs_spec[0].dggstessellation_set.all()],
+                      'dggsconformancetest_set': [{'requirement': d.requirement.name,
+                                                   'status': d.status,
+                                                   'notes': d.notes} for d in dggs_spec[0].dggsconformancetest_set.all()],
+
+                      }
+        initial_requirements_list = DGGSRequirement.objects.all()        
+        initial_requirements_list = list(initial_requirements_list.values_list("id"))
+        initial_conformance_test_list = []
+        for reqid in initial_requirements_list:
+            initial_conformance_test_list.append({
+                                                  'requirement': reqid[0]})
+        
+        if len(dggs_entry['dggsconformancetest_set']) == 0:
+            formset = ConformanceTestModelFormset(queryset=DGGSConformanceTest.objects.none(),
+                                                  
+                                                    initial = initial_conformance_test_list,)
+        else:
+            formset = ConformanceTestModelFormset(queryset=dggs_spec[0].dggsconformancetest_set.all(),
+                                                  )
+        
+        context = {'dggs_spec': dggs_entry,
+                   'formset': formset}
+        return render(request, 'review_dggs.html', context)
+
+
+        
+    elif request.method == 'POST':
+        post_values = request.POST.copy()
+        for i in range(int(post_values['form-TOTAL_FORMS'])):
+            post_values['form-'+str(i)+'-dggs'] = id
+            post_values['form-'+str(i)+'-id'] = list(DGGSConformanceTest.objects.filter(dggs = id,
+                                                    requirement = i+1).values_list("id"))[0][0]                    
+           
+        formset = ConformanceTestModelFormset(post_values)
+        if formset.is_valid():
+            for form in formset:
+                
+                form.save()
+            
+            return redirect('review_dggs_spec_complete')
+    
+def review_dggs_spec_complete(request): 
+    return render(request, 'review_dggs_complete.html')
+    
+
+def submit_new_dggs(request):
+    if request.method == 'GET':
+        dggs_specs_form = DGGSRegForm(DGGSReg.objects.none())
+        formset = TessellationModelFormset(queryset=DGGSTessellation.objects.none())
+        
+    elif request.method == 'POST':
+        post_values = request.POST.copy()
+        dggs_specs_form = DGGSRegForm(post_values)
+        if dggs_specs_form.is_valid():
+            dggs_specs_form.save()
+           
+        #=======================================================================
+        # link the tessellation forms to the master DGGS Registration Form
+        #=======================================================================
+        for i in range(int(post_values['form-TOTAL_FORMS'])):
+            post_values['form-'+str(i)+'-dggs'] = DGGSReg.objects.get(name=request.POST['name']).id
+        formset = TessellationModelFormset(post_values)
+       
+        if formset.is_valid():
+            for form in formset:
+                form.save()
+            
+            return redirect('submit_new_dggs_success')
+    
+    context = {'dggs_specs_form': dggs_specs_form,
+                'formset': formset}
+    return render(request, 'submit_new_dggs.html', context)
+    
+def submit_new_dggs_success(request): 
+    return render(request, 'submit_new_dggs_success.html')

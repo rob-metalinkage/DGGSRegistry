@@ -14,8 +14,10 @@ EDGETYPE_CODELIST="".join((DEFS_BASE,"celledgetype"))
 TESSELLATION_CODELIST="".join((DEFS_BASE,"tessellationmethod"))
 
 class DGGSReg(models.Model):
-    uri = models.URLField(help_text=u'URI identifying the DGGS')
+    uri = models.URLField(unique=True,
+                          help_text=u'URI identifying the DGGS')
     name = models.CharField(max_length=100,
+                            unique=True,
                             help_text=u'Display name')
     basepoly = models.ForeignKey(Concept, 
                                  related_name='basepoly',
@@ -27,39 +29,14 @@ class DGGSReg(models.Model):
                                  related_name='refmodel',
                                  verbose_name="Earth Reference Model",
                                  help_text='Reference Model for the Earth (or other planetary body)')
-    #===========================================================================
-    # refines = models.ForeignKey('DGGSReg', 
-    #                             null=True, 
-    #                             blank=True,
-    #                             related_name='refines_grid', 
-    #                             verbose_name="refines_grid")
-    #===========================================================================
-    #===========================================================================
-    # refinement_level = 0
-    #===========================================================================
+    
     refinement_ratio = models.PositiveSmallIntegerField(default=9, 
                                                         help_text='refinement ratio of DGGS tesselations (e.g. 1:4, 1:9 etc...)')
     tessellation_method = models.ForeignKey(Concept, 
                                             related_name='polyhedralTessellation',
                                             verbose_name="Tessellation Method",
                                             help_text='Tessellation method used')
-    #===========================================================================
-    # celltype1= models.ForeignKey(Concept, 
-    #                             related_name='celltype2',
-    #                             verbose_name="Cell Type")
-    #===========================================================================
     
-    #===========================================================================
-    # celltype= models.ForeignKey(Concept, 
-    #                             related_name='celltype',
-    #                             verbose_name="Cell Type")
-    # celledgetype= models.ForeignKey(Concept, 
-    #                             related_name='celledgetype',
-    #                             verbose_name="Cell Edge Type")
-    # cellarea = models.FloatField(help_text='cell area for each level of refinement')
-    # cellarea_precision = models.FloatField(help_text='cell area precision for each level of refinement')
-    # 
-    #===========================================================================
     cellequalarea = models.BooleanField(default=True, 
                                         verbose_name="Cells have equal area", 
                                         help_text="""
@@ -84,6 +61,7 @@ class DGGSReg(models.Model):
         check that parent dggs tesselation/grid is not it's own parent
         - calculate refinement level of the tessellation
         """
+     
         pass
 
     def save(self,*args,**kwargs):  
