@@ -152,7 +152,7 @@ def review_dggs_spec(request, id=0):
         initial_requirements_list = list(initial_requirements_list.values_list("id"))
         initial_conformance_test_list = []
         for reqid in initial_requirements_list:
-            initial_conformance_test_list.append({
+            initial_conformance_test_list.append({'dggs': id,
                                                   'requirement': reqid[0]})
         
         if len(dggs_entry['dggsconformancetest_set']) == 0:
@@ -162,7 +162,7 @@ def review_dggs_spec(request, id=0):
         else:
             formset = ConformanceTestModelFormset(queryset=dggs_spec[0].dggsconformancetest_set.all(),
                                                   )
-        
+      
         context = {'dggs_spec': dggs_entry,
                    'formset': formset}
         return render(request, 'review_dggs.html', context)
@@ -171,10 +171,17 @@ def review_dggs_spec(request, id=0):
         
     elif request.method == 'POST':
         post_values = request.POST.copy()
+        pprint(post_values)
         for i in range(int(post_values['form-TOTAL_FORMS'])):
             post_values['form-'+str(i)+'-dggs'] = id
-            post_values['form-'+str(i)+'-id'] = list(DGGSConformanceTest.objects.filter(dggs = id,
-                                                    requirement = i+1).values_list("id"))[0][0]                    
+            print(i,list(DGGSConformanceTest.objects.filter(dggs = id,
+                                                    requirement = i+1).values_list("id")))
+            print(i,list(DGGSConformanceTest.objects.filter(dggs = id).values_list("id")))
+        
+            #===================================================================
+            # post_values['form-'+str(i)+'-id'] = list(DGGSConformanceTest.objects.filter(dggs = id,
+            #                                         requirement = i+1).values_list("id"))[0][0]                    
+            #===================================================================
            
         formset = ConformanceTestModelFormset(post_values)
         if formset.is_valid():

@@ -34,6 +34,7 @@
 		<table class="tessellation_table">
 		{% for level in dggs_spec.dggstessellation_set %}
 			<tr class="tessellation_table">
+			<tr><td colspan=2><hr></td></tr>
 			<tr class="tessellation_table">
 				<th scope="col"  class="tessellation_table">Refinement Level</th>
 				<td class="tessellation_table"> {{ level.refinement_level }} </td>
@@ -75,6 +76,9 @@
 
 
 	{% for form in formset %}
+		<input type='hidden' id='{{ form.dggs.label_tag }}' name='{{ form.dggs.label_tag }}' value='{{ form.dggs }}'>
+		<input type='hidden' id='{{ form.id.label_tag }}' name='{{ form.id.label_tag }}' value='{{ form.id }}'>
+	
 		<tr  class="content_table">
 		<td  class="content_table">
 		<div class="row form-row spacer">
@@ -82,12 +86,8 @@
 				
 						<table >
 						<tr>
-							<td>DGGS Conformance Test:</td>
-							<td>
-								<div class="input-group-append">
-                					<button class="btn btn-success add-form-row">+</button>
-            					</div>
-							</td>		
+							<td>DGGS Conformance Test: {{ form.id  }}</td>
+									
 						</tr>		
 						</table>
 				

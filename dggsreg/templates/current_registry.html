@@ -72,22 +72,26 @@
 	<tr>
 		<th scope="col"  class="content_table">{{ test }}</th>
 		{% for item in dggs_registry_list %}
-			{% for conf_test in item.dggsconformancetest_set %}
-			{% if conf_test.requirement == test %}
-			<td class="content_table">
-				<table class="tessellation_table">
-					<thead class="tessellation_table">
-						<th class="tessellation_table">Status</th>
-						<th class="tessellation_table">Notes</th>
-					</thead>
-					<td class="tessellation_table"> {{ conf_test.status }} </td>
-					<td class="tessellation_table"> {{ conf_test.notes }} </td>
+			{% if item.dggsconformancetest_set|length > 0 %}
+				{% for conf_test in item.dggsconformancetest_set %}
+					{% if conf_test.requirement == test %}
+					<td class="content_table">
+						<table class="tessellation_table">
+							<thead class="tessellation_table">
+								<th class="tessellation_table">Status</th>
+								<th class="tessellation_table">Notes</th>
+							</thead>
+							<td class="tessellation_table"> {{ conf_test.status }} </td>
+							<td class="tessellation_table"> {{ conf_test.notes }} </td>
 						
-				</table>	
-			</td>
-			
+						</table>	
+					</td>
+					
+					{% endif %}
+				{% endfor %}
+			{% else %}
+				<td class="content_table"></td>
 			{% endif %}
-			{% endfor %}
 		{% endfor %}	
 	</tr>					
 	{% endfor %}
