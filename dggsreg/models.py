@@ -14,6 +14,10 @@ EDGETYPE_CODELIST="".join((DEFS_BASE,"celledgetype"))
 TESSELLATION_CODELIST="".join((DEFS_BASE,"tessellationmethod"))
 
 class DGGSReg(models.Model):
+    class Meta :
+        verbose_name="DGGS Register Entry"
+        verbose_name_plural="DGGS Register Entries"
+        
     uri = models.URLField(unique=True,
                           help_text=u'URI identifying the DGGS')
     name = models.CharField(max_length=100,
