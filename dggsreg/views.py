@@ -225,3 +225,8 @@ def submit_new_dggs(request):
     
 def submit_new_dggs_success(request): 
     return render(request, 'submit_new_dggs_success.html')
+
+def index(request):
+    return render(request, 'index.html')
+    
+

@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^review_dggs_spec_complete$', views.review_dggs_spec_complete, name='review_dggs_spec_complete'),
     
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.index, name='home'),
 ]
 
 urlpatterns +=  [ url(r'^skosxl/', include('skosxl.urls')) ]
