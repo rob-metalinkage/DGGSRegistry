@@ -25,11 +25,12 @@ urlpatterns = [
     url(r'^review_dggs_spec$', views.select_dggs_spec, name='select_dggs_spec'),
     url(r'^review_dggs_spec/(?P<id>\w+)/$', views.review_dggs_spec, name='review_dggs_spec'),
     url(r'^review_dggs_spec_complete$', views.review_dggs_spec_complete, name='review_dggs_spec_complete'),
-    
-    url(r'^admin/', admin.site.urls),
+# uncomment these if running this as the master project    
+    #url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='home'),
 ]
 
-urlpatterns +=  [ url(r'^skosxl/', include('skosxl.urls')) ]
-urlpatterns +=  [ url(r'^rdf_io/', include('rdf_io.urls')) ]
+# uncomment these if running this as the master project
+#urlpatterns +=  [ url(r'^skosxl/', include('skosxl.urls')) ]
+#urlpatterns +=  [ url(r'^rdf_io/', include('rdf_io.urls')) ]
 
