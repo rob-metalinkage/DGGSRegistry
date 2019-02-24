@@ -1,10 +1,43 @@
 {% extends "dggs_reg_base.html" %}
 
 
+{% block title %}
+<title>OGC DGGS Registry</title>
+{% endblock title %}
+
 {% block content %}
 <h2> DGGS Registry Landing Page...</h2>
 {% endblock %}
 
 {% block container %}
-
+<table class="content_table">
+<thead>
+	<th class="content_table">
+		Current  Registry
+	</th>
+	<th class="content_table">
+		DGGS Submition
+	</th>
+	<th class="content_table">
+		DGGS Review
+	</th>
+</thead>
+<tbody>
+	<tr>
+		<td class="content_table">
+		 <a href="/dggs_registry"><button >View DGGS Registry</button></a>
+		
+		</td>
+		<td class="content_table">
+		 <a href="submit_new_dggs"><button >Submit New DGGS Specification</button></a>
+		
+		</td>
+		<td class="content_table">
+		 <a href="review_dggs_spec"><button >Review DGGS Registry Submissions</button></a>
+		
+		</td>
+	</tr>
+	
+</tbody>
+</table>
 {% endblock %}

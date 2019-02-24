@@ -18,7 +18,23 @@
 
 </head>
 <body>
-bla
+	<header id="header">
+      <div class="header_container">
+    
+        <a href="/"><img alt="logo" 
+        				src="{% static 'images/OGC_Logo_2D_Blue_x_0_0_small.png' %}"/></a>
+       
+        
+        <nav id="nav">
+          <ul>
+            <li>
+              <a href="/">Home</a>
+            </li>
+         
+          </ul>
+        </nav> 
+      </div>
+    </header>
     <div class="content">
    		<div class="container">
       		{% block content %}
@@ -29,13 +45,13 @@ bla
     
 
     <div class="container">
-        <div class="row spacer"></div>
-        <div class="row offset-2">
-            <div class="col-12">
+<!--         <div class="row spacer"></div> -->
+<!--         <div class="row offset-2"> -->
+<!--             <div class="col-12"> -->
                 {% block container %}
                 {% endblock %}
-            </div>
-        </div>
+<!--             </div> -->
+<!--         </div> -->
     </div>	
 </body>
 </html>

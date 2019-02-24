@@ -86,3 +86,5 @@ class DGGSReg_selectionForm(Form):
         self.fields['dggs_comboBox'].label = "Select DGGS Spec to Review:"
         self.fields['dggs_comboBox'].choices = tuple(dggs_registry_details_list)
         
+        
+        
