@@ -1,1 +1,1025 @@
-[{"model": "skosxl.scheme", "fields": {"pref_label": "DGGS Cell Type Codes", "slug": "httpswwwopengisnetdefdggscodecelltype", "uri": "https://www.opengis.net/def/dggs/code/celltype", "created": "2018-02-21T02:45:49.552Z", "modified": "2018-02-21T02:45:52.034Z", "definition": "", "changenote": "Bulk import via SKOSXL manager on 2018-02-21 02:45:49.511800+00:00 by superuser from source resources/celltype.ttl", "authgroup": null}}, {"model": "skosxl.scheme", "fields": {"pref_label": "DGGS Earth Reference Model Codes", "slug": "httpswwwopengisnetdefdggscoderefmodel", "uri": "https://www.opengis.net/def/dggs/code/refmodel", "created": "2018-02-21T02:46:13.082Z", "modified": "2018-02-21T02:52:25.179Z", "definition": "", "changenote": "Bulk import via SKOSXL manager on 2018-02-21 02:46:13.065680+00:00 by superuser from source resources/refmodel.ttl", "authgroup": null}}, {"model": "skosxl.scheme", "fields": {"pref_label": "DGGS Base Polyhedron Codes", "slug": "httpswwwopengisnetdefdggscodebasepoly", "uri": "https://www.opengis.net/def/dggs/code/basepoly", "created": "2018-02-21T03:03:35.514Z", "modified": "2018-02-21T03:03:40.826Z", "definition": "", "changenote": "Bulk import via SKOSXL manager on 2018-02-21 03:03:35.367259+00:00 by superuser from source resources/basepoly_YQXyvTz.ttl", "authgroup": null}}, {"model": "skosxl.scheme", "fields": {"pref_label": "DGGS Tessellation Methods", "slug": "dggs-tessellation-methods", "uri": "https://www.opengis.net/def/dggs/code/tessellationmethod", "created": "2018-08-27T10:25:05.413Z", "modified": "2018-08-31T14:17:02.442Z", "definition": "", "changenote": "", "authgroup": null}}, {"model": "skosxl.scheme", "fields": {"pref_label": "DGGS Cell Edge Types", "slug": "dggs-cell-edge-types", "uri": "https://www.opengis.net/def/dggs/code/celledgetype", "created": "2018-08-31T14:48:24.324Z", "modified": "2018-08-31T15:00:39.248Z", "definition": "", "changenote": "", "authgroup": null}}, {"model": "skosxl.concept", "fields": {"term": "hexagon", "slug": "hexagon", "pref_label": "Hexagonal", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/celltype", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-02-21T02:45:49.585Z", "modified": "2018-02-21T02:45:52.045Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/celltype/hexagon", "author_uri": "", "top_concept": true}}, {"model": "skosxl.concept", "fields": {"term": "WGS84Ellipsoid", "slug": "wgs84ellipsoid", "pref_label": "WGS84 Ellipsoid", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/refmodel", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-02-21T02:46:13.096Z", "modified": "2018-02-21T02:54:25.862Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/refmodel/WGS84Ellipsoid", "author_uri": "", "top_concept": true}}, {"model": "skosxl.concept", "fields": {"term": "eggybread", "slug": "eggybread", "pref_label": "eggy sample", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/basepoly", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-02-21T03:03:35.606Z", "modified": "2018-02-21T03:03:40.856Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/basepoly/eggybread", "author_uri": "", "top_concept": true}}, {"model": "skosxl.concept", "fields": {"term": "tetrahedron", "slug": "tetrahedron", "pref_label": "tetrahedron", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/basepoly", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-08-27T05:10:17.679Z", "modified": "2018-08-27T05:11:46.157Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/basepoly/tetrahedron", "author_uri": "", "top_concept": true}}, {"model": "skosxl.concept", "fields": {"term": "cube", "slug": "cube", "pref_label": "cube", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/basepoly", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-08-27T05:13:03.681Z", "modified": "2018-08-27T05:13:03.681Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/basepoly/cube", "author_uri": "", "top_concept": true}}, {"model": "skosxl.concept", "fields": {"term": "octahedron", "slug": "octahedron", "pref_label": "octahedron", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/basepoly", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-08-27T05:13:39.386Z", "modified": "2018-08-27T05:13:39.386Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/basepoly/octahedron", "author_uri": "", "top_concept": true}}, {"model": "skosxl.concept", "fields": {"term": "dodecahedron", "slug": "dodecahedron", "pref_label": "dodecahedron", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/basepoly", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-08-27T05:14:21.844Z", "modified": "2018-08-27T05:14:21.844Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/basepoly/dodecahedron", "author_uri": "", "top_concept": true}}, {"model": "skosxl.concept", "fields": {"term": "icosahedron", "slug": "icosahedron", "pref_label": "Icosahedron", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/basepoly", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-08-27T05:15:09.266Z", "modified": "2018-08-27T05:15:09.266Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/basepoly/icosahedron", "author_uri": "", "top_concept": true}}, {"model": "skosxl.concept", "fields": {"term": "AuthalicSphere", "slug": "authalicsphere", "pref_label": "Authalic Sphere", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/refmodel", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-08-27T05:16:11.478Z", "modified": "2018-08-27T05:16:11.478Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/refmodel/AuthalicSphere", "author_uri": "", "top_concept": false}}, {"model": "skosxl.concept", "fields": {"term": "UnitSphere", "slug": "unitsphere", "pref_label": "Unit Sphere", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/refmodel", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-08-27T05:16:47.998Z", "modified": "2018-08-27T05:16:47.998Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/refmodel/UnitSphere", "author_uri": "", "top_concept": false}}, {"model": "skosxl.concept", "fields": {"term": "GRS80", "slug": "grs80", "pref_label": "GRS80 Ellipsoid", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/refmodel", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-08-27T05:18:05.629Z", "modified": "2018-08-27T05:18:05.629Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/refmodel/GRS80", "author_uri": "", "top_concept": false}}, {"model": "skosxl.concept", "fields": {"term": "Triangle", "slug": "triangle", "pref_label": "Triangular Cell Type", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/celltype", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-08-27T05:20:34.612Z", "modified": "2018-08-27T05:20:34.612Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/celltype/Triangle", "author_uri": "", "top_concept": false}}, {"model": "skosxl.concept", "fields": {"term": "square", "slug": "square", "pref_label": "Square Cell type", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/celltype", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-08-27T05:21:17.290Z", "modified": "2018-08-27T05:21:17.290Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/celltype/square", "author_uri": "", "top_concept": false}}, {"model": "skosxl.concept", "fields": {"term": "Diamond", "slug": "diamond", "pref_label": "Diamond Cell Type", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/celltype", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-08-27T05:21:53.314Z", "modified": "2018-08-27T05:21:53.315Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/celltype/Diamond", "author_uri": "", "top_concept": false}}, {"model": "skosxl.concept", "fields": {"term": "Snyder", "slug": "snyder", "pref_label": "Snyder projection", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/tessellationmethod", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-08-31T14:02:45.844Z", "modified": "2018-08-31T14:02:45.844Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/tessellationmethod/Snyder", "author_uri": "", "top_concept": false}}, {"model": "skosxl.concept", "fields": {"term": "HealPIX", "slug": "healpix", "pref_label": "HealPIX projection", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/tessellationmethod", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-08-31T14:17:02.551Z", "modified": "2018-08-31T14:17:02.551Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/tessellationmethod/HealPIX", "author_uri": "", "top_concept": false}}, {"model": "skosxl.concept", "fields": {"term": "rHealPIX", "slug": "rhealpix", "pref_label": "Rearranged HealPIX projection", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/tessellationmethod", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-08-31T14:17:02.666Z", "modified": "2018-08-31T14:17:02.667Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/tessellationmethod/rHealPIX", "author_uri": "", "top_concept": false}}, {"model": "skosxl.concept", "fields": {"term": "geodesic", "slug": "geodesic", "pref_label": "Geodesic Cell Edge", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/celledgetype", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-08-31T15:00:39.361Z", "modified": "2018-08-31T15:00:39.363Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/celledgetype/geodesic", "author_uri": "", "top_concept": false}}, {"model": "skosxl.concept", "fields": {"term": "small_circle", "slug": "small_circle", "pref_label": "Small Circle Cell Edge", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/celledgetype", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-08-31T15:00:39.409Z", "modified": "2018-08-31T15:00:39.409Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/celledgetype/small_circle", "author_uri": "", "top_concept": false}}, {"model": "skosxl.concept", "fields": {"term": "small_ellipse", "slug": "small_ellipse", "pref_label": "Small Ellipse Cell Edge", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/celledgetype", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-08-31T15:00:39.482Z", "modified": "2018-08-31T15:00:39.482Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/celledgetype/small_ellipse", "author_uri": "", "top_concept": false}}, {"model": "skosxl.concept", "fields": {"term": "staight_line", "slug": "staight_line", "pref_label": "Projects to Straight Line", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/celledgetype", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-08-31T15:00:39.511Z", "modified": "2018-08-31T15:00:39.511Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/celledgetype/staight_line", "author_uri": "", "top_concept": false}}, {"model": "skosxl.concept", "fields": {"term": "bla", "slug": "bla", "pref_label": "bla bla", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/celltype", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-09-01T10:07:59.190Z", "modified": "2018-09-01T10:07:59.191Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/celltype/bla", "author_uri": "", "top_concept": false}}, {"model": "skosxl.concept", "fields": {"term": "Gnomic", "slug": "gnomic", "pref_label": "Gnomic Projection of Polyhedral Faces", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/tessellationmethod", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-09-04T15:16:11.307Z", "modified": "2018-09-04T15:16:11.307Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/tessellationmethod/Gnomic", "author_uri": "", "top_concept": false}}, {"model": "skosxl.concept", "fields": {"term": "polyhedral", "slug": "polyhedral", "pref_label": "Polyhedral Mapping to Ellipsoid", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/tessellationmethod", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-09-04T15:17:28.155Z", "modified": "2018-09-04T15:17:28.155Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/tessellationmethod/polyhedral", "author_uri": "", "top_concept": false}}, {"model": "skosxl.concept", "fields": {"term": "pentagon", "slug": "pentagon", "pref_label": "Pentagonal CellType", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/celltype", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-09-04T15:18:11.667Z", "modified": "2018-09-04T15:18:11.667Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/celltype/pentagon", "author_uri": "", "top_concept": false}}, {"model": "skosxl.concept", "fields": {"term": "truncated_icosahedron", "slug": "truncated_icosahedron", "pref_label": "Truncated Icosahedron", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/basepoly", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-09-04T15:19:40.972Z", "modified": "2018-09-04T15:19:40.972Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/basepoly/truncated_icosahedron", "author_uri": "", "top_concept": false}}, {"model": "skosxl.concept", "fields": {"term": "WGS84_G1762", "slug": "wgs84_g1762", "pref_label": "WGS84 (Version G1762)", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/refmodel", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-09-04T15:21:38.119Z", "modified": "2018-09-04T15:21:38.119Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/refmodel/WGS84_G1762", "author_uri": "", "top_concept": false}}, {"model": "skosxl.concept", "fields": {"term": "ECEF", "slug": "ecef", "pref_label": "Earth Centred Earth Fixed - Geodetic Mapping", "definition": "", "scheme": "https://www.opengis.net/def/dggs/code/tessellationmethod", "rank": null, "prefStyle": null, "changenote": "", "created": "2018-09-04T15:24:01.116Z", "modified": "2018-09-04T15:24:01.116Z", "status": 0, "user": null, "uri": "https://www.opengis.net/def/dggs/code/tessellationmethod/ECEF", "author_uri": "", "top_concept": false}}, {"model": "skosxl.label", "pk": 2, "fields": {"slug": "hexagonal", "concept": "https://www.opengis.net/def/dggs/code/celltype/hexagon", "label_type": 0, "label_text": "Hexagonal", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-02-21T02:45:49.726Z", "modified": "2018-02-21T02:45:49.726Z"}}, {"model": "skosxl.label", "pk": 4, "fields": {"slug": "wgs84-ellipsoid", "concept": "https://www.opengis.net/def/dggs/code/refmodel/WGS84Ellipsoid", "label_type": 0, "label_text": "WGS84 Ellipsoid", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-02-21T02:54:25.881Z", "modified": "2018-02-21T02:54:25.881Z"}}, {"model": "skosxl.label", "pk": 6, "fields": {"slug": "eggy-sample", "concept": "https://www.opengis.net/def/dggs/code/basepoly/eggybread", "label_type": 0, "label_text": "eggy sample", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-02-21T03:03:35.831Z", "modified": "2018-02-21T03:03:35.832Z"}}, {"model": "skosxl.label", "pk": 7, "fields": {"slug": "tetrahedron", "concept": "https://www.opengis.net/def/dggs/code/basepoly/tetrahedron", "label_type": 0, "label_text": "tetrahedron", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-08-27T05:10:17.699Z", "modified": "2018-08-27T05:10:17.700Z"}}, {"model": "skosxl.label", "pk": 8, "fields": {"slug": "cube", "concept": "https://www.opengis.net/def/dggs/code/basepoly/cube", "label_type": 0, "label_text": "cube", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-08-27T05:13:03.701Z", "modified": "2018-08-27T05:13:03.701Z"}}, {"model": "skosxl.label", "pk": 9, "fields": {"slug": "octahedron", "concept": "https://www.opengis.net/def/dggs/code/basepoly/octahedron", "label_type": 0, "label_text": "octahedron", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-08-27T05:13:39.455Z", "modified": "2018-08-27T05:13:39.455Z"}}, {"model": "skosxl.label", "pk": 10, "fields": {"slug": "dodecahedron", "concept": "https://www.opengis.net/def/dggs/code/basepoly/dodecahedron", "label_type": 0, "label_text": "dodecahedron", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-08-27T05:14:21.922Z", "modified": "2018-08-27T05:14:21.922Z"}}, {"model": "skosxl.label", "pk": 11, "fields": {"slug": "icosahedron", "concept": "https://www.opengis.net/def/dggs/code/basepoly/icosahedron", "label_type": 0, "label_text": "Icosahedron", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-08-27T05:15:09.289Z", "modified": "2018-08-27T05:15:09.289Z"}}, {"model": "skosxl.label", "pk": 12, "fields": {"slug": "authalic-sphere", "concept": "https://www.opengis.net/def/dggs/code/refmodel/AuthalicSphere", "label_type": 0, "label_text": "Authalic Sphere", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-08-27T05:16:11.497Z", "modified": "2018-08-27T05:16:11.497Z"}}, {"model": "skosxl.label", "pk": 13, "fields": {"slug": "unit-sphere", "concept": "https://www.opengis.net/def/dggs/code/refmodel/UnitSphere", "label_type": 0, "label_text": "Unit Sphere", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-08-27T05:16:48.017Z", "modified": "2018-08-27T05:16:48.018Z"}}, {"model": "skosxl.label", "pk": 14, "fields": {"slug": "grs80-ellipsoid", "concept": "https://www.opengis.net/def/dggs/code/refmodel/GRS80", "label_type": 0, "label_text": "GRS80 Ellipsoid", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-08-27T05:18:05.647Z", "modified": "2018-08-27T05:18:05.647Z"}}, {"model": "skosxl.label", "pk": 15, "fields": {"slug": "triangular-cell-type", "concept": "https://www.opengis.net/def/dggs/code/celltype/Triangle", "label_type": 0, "label_text": "Triangular Cell Type", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-08-27T05:20:34.632Z", "modified": "2018-08-27T05:20:34.632Z"}}, {"model": "skosxl.label", "pk": 16, "fields": {"slug": "square-cell-type", "concept": "https://www.opengis.net/def/dggs/code/celltype/square", "label_type": 0, "label_text": "Square Cell type", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-08-27T05:21:17.308Z", "modified": "2018-08-27T05:21:17.308Z"}}, {"model": "skosxl.label", "pk": 17, "fields": {"slug": "diamond-cell-type", "concept": "https://www.opengis.net/def/dggs/code/celltype/Diamond", "label_type": 0, "label_text": "Diamond Cell Type", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-08-27T05:21:53.351Z", "modified": "2018-08-27T05:21:53.351Z"}}, {"model": "skosxl.label", "pk": 21, "fields": {"slug": "snyder-projection", "concept": "https://www.opengis.net/def/dggs/code/tessellationmethod/Snyder", "label_type": 0, "label_text": "Snyder projection", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-08-31T14:02:45.870Z", "modified": "2018-08-31T14:02:45.870Z"}}, {"model": "skosxl.label", "pk": 22, "fields": {"slug": "healpix-projection", "concept": "https://www.opengis.net/def/dggs/code/tessellationmethod/HealPIX", "label_type": 0, "label_text": "HealPIX projection", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-08-31T14:17:02.573Z", "modified": "2018-08-31T14:17:02.573Z"}}, {"model": "skosxl.label", "pk": 23, "fields": {"slug": "rearranged-healpix-projection", "concept": "https://www.opengis.net/def/dggs/code/tessellationmethod/rHealPIX", "label_type": 0, "label_text": "Rearranged HealPIX projection", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-08-31T14:17:02.681Z", "modified": "2018-08-31T14:17:02.682Z"}}, {"model": "skosxl.label", "pk": 24, "fields": {"slug": "geodesic-cell-edge", "concept": "https://www.opengis.net/def/dggs/code/celledgetype/geodesic", "label_type": 0, "label_text": "Geodesic Cell Edge", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-08-31T15:00:39.377Z", "modified": "2018-08-31T15:00:39.377Z"}}, {"model": "skosxl.label", "pk": 25, "fields": {"slug": "small-circle-cell-edge", "concept": "https://www.opengis.net/def/dggs/code/celledgetype/small_circle", "label_type": 0, "label_text": "Small Circle Cell Edge", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-08-31T15:00:39.452Z", "modified": "2018-08-31T15:00:39.452Z"}}, {"model": "skosxl.label", "pk": 26, "fields": {"slug": "small-ellipse-cell-edge", "concept": "https://www.opengis.net/def/dggs/code/celledgetype/small_ellipse", "label_type": 0, "label_text": "Small Ellipse Cell Edge", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-08-31T15:00:39.495Z", "modified": "2018-08-31T15:00:39.495Z"}}, {"model": "skosxl.label", "pk": 27, "fields": {"slug": "projects-to-straight-line", "concept": "https://www.opengis.net/def/dggs/code/celledgetype/staight_line", "label_type": 0, "label_text": "Projects to Straight Line", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-08-31T15:00:39.525Z", "modified": "2018-08-31T15:00:39.525Z"}}, {"model": "skosxl.label", "pk": 28, "fields": {"slug": "bla-bla", "concept": "https://www.opengis.net/def/dggs/code/celltype/bla", "label_type": 0, "label_text": "bla bla", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-09-01T10:07:59.209Z", "modified": "2018-09-01T10:07:59.209Z"}}, {"model": "skosxl.label", "pk": 29, "fields": {"slug": "gnomic-projection-of-polyhedral-faces", "concept": "https://www.opengis.net/def/dggs/code/tessellationmethod/Gnomic", "label_type": 0, "label_text": "Gnomic Projection of Polyhedral Faces", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-09-04T15:16:11.333Z", "modified": "2018-09-04T15:16:11.333Z"}}, {"model": "skosxl.label", "pk": 30, "fields": {"slug": "polyhedral-mapping-to-ellipsoid", "concept": "https://www.opengis.net/def/dggs/code/tessellationmethod/polyhedral", "label_type": 0, "label_text": "Polyhedral Mapping to Ellipsoid", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-09-04T15:17:28.179Z", "modified": "2018-09-04T15:17:28.179Z"}}, {"model": "skosxl.label", "pk": 31, "fields": {"slug": "pentagonal-celltype", "concept": "https://www.opengis.net/def/dggs/code/celltype/pentagon", "label_type": 0, "label_text": "Pentagonal CellType", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-09-04T15:18:11.697Z", "modified": "2018-09-04T15:18:11.697Z"}}, {"model": "skosxl.label", "pk": 32, "fields": {"slug": "truncated-icosahedron", "concept": "https://www.opengis.net/def/dggs/code/basepoly/truncated_icosahedron", "label_type": 0, "label_text": "Truncated Icosahedron", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-09-04T15:19:40.991Z", "modified": "2018-09-04T15:19:40.991Z"}}, {"model": "skosxl.label", "pk": 33, "fields": {"slug": "wgs84-version-g1762", "concept": "https://www.opengis.net/def/dggs/code/refmodel/WGS84_G1762", "label_type": 0, "label_text": "WGS84 (Version G1762)", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-09-04T15:21:38.168Z", "modified": "2018-09-04T15:21:38.168Z"}}, {"model": "skosxl.label", "pk": 34, "fields": {"slug": "earth-centred-earth-fixed-geodetic-mapping", "concept": "https://www.opengis.net/def/dggs/code/tessellationmethod/ECEF", "label_type": 0, "label_text": "Earth Centred Earth Fixed - Geodetic Mapping", "language": "en", "user": null, "uri": "", "author_uri": "", "created": "2018-09-04T15:24:01.138Z", "modified": "2018-09-04T15:24:01.138Z"}}, {"model": "skosxl.importedconceptscheme", "pk": 1, "fields": {"target_scheme": "", "import_all": true, "force_bulk_only": false, "force_refresh": false, "rankNameProperty": null, "rankDepthProperty": null, "rankURIProperty": null, "rankTopName": null, "schemes": ["https://www.opengis.net/def/dggs/code/celltype"]}}, {"model": "skosxl.importedconceptscheme", "pk": 2, "fields": {"target_scheme": "", "import_all": true, "force_bulk_only": false, "force_refresh": false, "rankNameProperty": null, "rankDepthProperty": null, "rankURIProperty": null, "rankTopName": null, "schemes": ["https://www.opengis.net/def/dggs/code/refmodel"]}}, {"model": "skosxl.importedconceptscheme", "pk": 3, "fields": {"target_scheme": "", "import_all": true, "force_bulk_only": false, "force_refresh": false, "rankNameProperty": null, "rankDepthProperty": null, "rankURIProperty": null, "rankTopName": null, "schemes": ["https://www.opengis.net/def/dggs/code/basepoly"]}}]
+[
+    {
+        "model": "skosxl.scheme",
+        "fields": {
+            "pref_label": "DGGS Cell Type Codes",
+            "slug": "httpswwwopengisnetdefdggscodecelltype",
+            "uri": "https://www.opengis.net/def/dggs/code/celltype" ,
+            "created": "2018-02-21T02:45:49.552Z",
+            "modified": "2018-02-21T02:45:52.034Z",
+            "definition": "",
+            "changenote": "Bulk import via SKOSXL manager on 2018-02-21 02:45:49.511800+00:00 by superuser from source resources/celltype.ttl",
+            "authgroup": null
+        }
+    },
+    {
+        "model": "skosxl.scheme",
+        "fields": {
+            "pref_label": "DGGS Earth Reference Model Codes",
+            "slug": "httpswwwopengisnetdefdggscoderefmodel",
+            "uri": "https://www.opengis.net/def/dggs/code/refmodel" ,
+            "created": "2018-02-21T02:46:13.082Z",
+            "modified": "2018-02-21T02:52:25.179Z",
+            "definition": "",
+            "changenote": "Bulk import via SKOSXL manager on 2018-02-21 02:46:13.065680+00:00 by superuser from source resources/refmodel.ttl",
+            "authgroup": null
+        }
+    },
+    {
+        "model": "skosxl.scheme",
+        "fields": {
+            "pref_label": "DGGS Base Polyhedron Codes",
+            "slug": "httpswwwopengisnetdefdggscodebasepoly",
+            "uri": "https://www.opengis.net/def/dggs/code/basepoly" ,
+            "created": "2018-02-21T03:03:35.514Z",
+            "modified": "2018-02-21T03:03:40.826Z",
+            "definition": "",
+            "changenote": "Bulk import via SKOSXL manager on 2018-02-21 03:03:35.367259+00:00 by superuser from source resources/basepoly_YQXyvTz.ttl",
+            "authgroup": null
+        }
+    },
+    {
+        "model": "skosxl.scheme",
+        "fields": {
+            "pref_label": "DGGS Tessellation Methods",
+            "slug": "dggs-tessellation-methods",
+            "uri": "https://www.opengis.net/def/dggs/code/tessellationmethod" ,
+            "created": "2018-08-27T10:25:05.413Z",
+            "modified": "2018-08-31T14:17:02.442Z",
+            "definition": "",
+            "changenote": "",
+            "authgroup": null
+        }
+    },
+    {
+        "model": "skosxl.scheme",
+        "fields": {
+            "pref_label": "DGGS Cell Edge Types",
+            "slug": "dggs-cell-edge-types",
+            "uri": "https://www.opengis.net/def/dggs/code/celledgetype",
+            "created": "2018-08-31T14:48:24.324Z",
+            "modified": "2018-08-31T15:00:39.248Z",
+            "definition": "",
+            "changenote": "",
+            "authgroup": null
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "hexagon",
+            "slug": "hexagon",
+            "pref_label": "Hexagonal",
+            "definition": "",
+            "scheme": [  "https://www.opengis.net/def/dggs/code/celltype" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-02-21T02:45:49.585Z",
+            "modified": "2018-02-21T02:45:52.045Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/celltype/hexagon",
+            "author_uri": "",
+            "top_concept": true
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "WGS84Ellipsoid",
+            "slug": "wgs84ellipsoid",
+            "pref_label": "WGS84 Ellipsoid",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/refmodel" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-02-21T02:46:13.096Z",
+            "modified": "2018-02-21T02:54:25.862Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/refmodel/WGS84Ellipsoid",
+            "author_uri": "",
+            "top_concept": true
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "eggybread",
+            "slug": "eggybread",
+            "pref_label": "eggy sample",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/basepoly" ] ,
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-02-21T03:03:35.606Z",
+            "modified": "2018-02-21T03:03:40.856Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/basepoly/eggybread",
+            "author_uri": "",
+            "top_concept": true
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "tetrahedron",
+            "slug": "tetrahedron",
+            "pref_label": "tetrahedron",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/basepoly" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-08-27T05:10:17.679Z",
+            "modified": "2018-08-27T05:11:46.157Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/basepoly/tetrahedron",
+            "author_uri": "",
+            "top_concept": true
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "cube",
+            "slug": "cube",
+            "pref_label": "cube",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/basepoly" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-08-27T05:13:03.681Z",
+            "modified": "2018-08-27T05:13:03.681Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/basepoly/cube",
+            "author_uri": "",
+            "top_concept": true
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "octahedron",
+            "slug": "octahedron",
+            "pref_label": "octahedron",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/basepoly" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-08-27T05:13:39.386Z",
+            "modified": "2018-08-27T05:13:39.386Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/basepoly/octahedron",
+            "author_uri": "",
+            "top_concept": true
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "dodecahedron",
+            "slug": "dodecahedron",
+            "pref_label": "dodecahedron",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/basepoly" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-08-27T05:14:21.844Z",
+            "modified": "2018-08-27T05:14:21.844Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/basepoly/dodecahedron",
+            "author_uri": "",
+            "top_concept": true
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "icosahedron",
+            "slug": "icosahedron",
+            "pref_label": "Icosahedron",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/basepoly" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-08-27T05:15:09.266Z",
+            "modified": "2018-08-27T05:15:09.266Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/basepoly/icosahedron",
+            "author_uri": "",
+            "top_concept": true
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "AuthalicSphere",
+            "slug": "authalicsphere",
+            "pref_label": "Authalic Sphere",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/refmodel" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-08-27T05:16:11.478Z",
+            "modified": "2018-08-27T05:16:11.478Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/refmodel/AuthalicSphere",
+            "author_uri": "",
+            "top_concept": false
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "UnitSphere",
+            "slug": "unitsphere",
+            "pref_label": "Unit Sphere",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/refmodel" ] ,
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-08-27T05:16:47.998Z",
+            "modified": "2018-08-27T05:16:47.998Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/refmodel/UnitSphere",
+            "author_uri": "",
+            "top_concept": false
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "GRS80",
+            "slug": "grs80",
+            "pref_label": "GRS80 Ellipsoid",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/refmodel" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-08-27T05:18:05.629Z",
+            "modified": "2018-08-27T05:18:05.629Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/refmodel/GRS80",
+            "author_uri": "",
+            "top_concept": false
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "Triangle",
+            "slug": "triangle",
+            "pref_label": "Triangular Cell Type",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/celltype" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-08-27T05:20:34.612Z",
+            "modified": "2018-08-27T05:20:34.612Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/celltype/Triangle",
+            "author_uri": "",
+            "top_concept": false
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "square",
+            "slug": "square",
+            "pref_label": "Square Cell type",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/celltype" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-08-27T05:21:17.290Z",
+            "modified": "2018-08-27T05:21:17.290Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/celltype/square",
+            "author_uri": "",
+            "top_concept": false
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "Diamond",
+            "slug": "diamond",
+            "pref_label": "Diamond Cell Type",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/celltype" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-08-27T05:21:53.314Z",
+            "modified": "2018-08-27T05:21:53.315Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/celltype/Diamond",
+            "author_uri": "",
+            "top_concept": false
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "Snyder",
+            "slug": "snyder",
+            "pref_label": "Snyder projection",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/tessellationmethod" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-08-31T14:02:45.844Z",
+            "modified": "2018-08-31T14:02:45.844Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/tessellationmethod/Snyder",
+            "author_uri": "",
+            "top_concept": false
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "HealPIX",
+            "slug": "healpix",
+            "pref_label": "HealPIX projection",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/tessellationmethod" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-08-31T14:17:02.551Z",
+            "modified": "2018-08-31T14:17:02.551Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/tessellationmethod/HealPIX",
+            "author_uri": "",
+            "top_concept": false
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "rHealPIX",
+            "slug": "rhealpix",
+            "pref_label": "Rearranged HealPIX projection",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/tessellationmethod" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-08-31T14:17:02.666Z",
+            "modified": "2018-08-31T14:17:02.667Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/tessellationmethod/rHealPIX",
+            "author_uri": "",
+            "top_concept": false
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "geodesic",
+            "slug": "geodesic",
+            "pref_label": "Geodesic Cell Edge",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/celledgetype" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-08-31T15:00:39.361Z",
+            "modified": "2018-08-31T15:00:39.363Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/celledgetype/geodesic",
+            "author_uri": "",
+            "top_concept": false
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "small_circle",
+            "slug": "small_circle",
+            "pref_label": "Small Circle Cell Edge",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/celledgetype" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-08-31T15:00:39.409Z",
+            "modified": "2018-08-31T15:00:39.409Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/celledgetype/small_circle",
+            "author_uri": "",
+            "top_concept": false
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "small_ellipse",
+            "slug": "small_ellipse",
+            "pref_label": "Small Ellipse Cell Edge",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/celledgetype" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-08-31T15:00:39.482Z",
+            "modified": "2018-08-31T15:00:39.482Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/celledgetype/small_ellipse",
+            "author_uri": "",
+            "top_concept": false
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "staight_line",
+            "slug": "staight_line",
+            "pref_label": "Projects to Straight Line",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/celledgetype" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-08-31T15:00:39.511Z",
+            "modified": "2018-08-31T15:00:39.511Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/celledgetype/staight_line",
+            "author_uri": "",
+            "top_concept": false
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "Gnomic",
+            "slug": "gnomic",
+            "pref_label": "Gnomic Projection of Polyhedral Faces",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/tessellationmethod" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-09-04T15:16:11.307Z",
+            "modified": "2018-09-04T15:16:11.307Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/tessellationmethod/Gnomic",
+            "author_uri": "",
+            "top_concept": false
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "polyhedral",
+            "slug": "polyhedral",
+            "pref_label": "Polyhedral Mapping to Ellipsoid",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/tessellationmethod" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-09-04T15:17:28.155Z",
+            "modified": "2018-09-04T15:17:28.155Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/tessellationmethod/polyhedral",
+            "author_uri": "",
+            "top_concept": false
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "pentagon",
+            "slug": "pentagon",
+            "pref_label": "Pentagonal CellType",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/celltype" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-09-04T15:18:11.667Z",
+            "modified": "2018-09-04T15:18:11.667Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/celltype/pentagon",
+            "author_uri": "",
+            "top_concept": false
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "truncated_icosahedron",
+            "slug": "truncated_icosahedron",
+            "pref_label": "Truncated Icosahedron",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/basepoly" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-09-04T15:19:40.972Z",
+            "modified": "2018-09-04T15:19:40.972Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/basepoly/truncated_icosahedron",
+            "author_uri": "",
+            "top_concept": false
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "WGS84_G1762",
+            "slug": "wgs84_g1762",
+            "pref_label": "WGS84 (Version G1762)",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/refmodel" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-09-04T15:21:38.119Z",
+            "modified": "2018-09-04T15:21:38.119Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/refmodel/WGS84_G1762",
+            "author_uri": "",
+            "top_concept": false
+        }
+    },
+    {
+        "model": "skosxl.concept",
+        "fields": {
+            "term": "ECEF",
+            "slug": "ecef",
+            "pref_label": "Earth Centred Earth Fixed - Geodetic Mapping",
+            "definition": "",
+            "scheme": [ "https://www.opengis.net/def/dggs/code/tessellationmethod" ],
+            "rank": null,
+            "prefStyle": null,
+            "changenote": "",
+            "created": "2018-09-04T15:24:01.116Z",
+            "modified": "2018-09-04T15:24:01.116Z",
+            "status": 0,
+            "user": null,
+            "uri": "https://www.opengis.net/def/dggs/code/tessellationmethod/ECEF",
+            "author_uri": "",
+            "top_concept": false
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "hexagonal",
+            "concept": [ "https://www.opengis.net/def/dggs/code/celltype/hexagon" ],
+            "label_type": 0,
+            "label_text": "Hexagonal",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-02-21T02:45:49.726Z",
+            "modified": "2018-02-21T02:45:49.726Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "wgs84-ellipsoid",
+            "concept": [ "https://www.opengis.net/def/dggs/code/refmodel/WGS84Ellipsoid" ],
+            "label_type": 0,
+            "label_text": "WGS84 Ellipsoid",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-02-21T02:54:25.881Z",
+            "modified": "2018-02-21T02:54:25.881Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "tetrahedron",
+            "concept": [ "https://www.opengis.net/def/dggs/code/basepoly/tetrahedron" ],
+            "label_type": 0,
+            "label_text": "tetrahedron",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-08-27T05:10:17.699Z",
+            "modified": "2018-08-27T05:10:17.700Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "cube",
+            "concept": [ "https://www.opengis.net/def/dggs/code/basepoly/cube" ],
+            "label_type": 0,
+            "label_text": "cube",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-08-27T05:13:03.701Z",
+            "modified": "2018-08-27T05:13:03.701Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "octahedron",
+            "concept": [ "https://www.opengis.net/def/dggs/code/basepoly/octahedron" ],
+            "label_type": 0,
+            "label_text": "octahedron",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-08-27T05:13:39.455Z",
+            "modified": "2018-08-27T05:13:39.455Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "dodecahedron",
+            "concept": [ "https://www.opengis.net/def/dggs/code/basepoly/dodecahedron" ],
+            "label_type": 0,
+            "label_text": "dodecahedron",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-08-27T05:14:21.922Z",
+            "modified": "2018-08-27T05:14:21.922Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "icosahedron",
+            "concept": [ "https://www.opengis.net/def/dggs/code/basepoly/icosahedron" ],
+            "label_type": 0,
+            "label_text": "Icosahedron",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-08-27T05:15:09.289Z",
+            "modified": "2018-08-27T05:15:09.289Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "authalic-sphere",
+            "concept": [ "https://www.opengis.net/def/dggs/code/refmodel/AuthalicSphere" ],
+            "label_type": 0,
+            "label_text": "Authalic Sphere",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-08-27T05:16:11.497Z",
+            "modified": "2018-08-27T05:16:11.497Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "unit-sphere",
+            "concept": [ "https://www.opengis.net/def/dggs/code/refmodel/UnitSphere" ],
+            "label_type": 0,
+            "label_text": "Unit Sphere",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-08-27T05:16:48.017Z",
+            "modified": "2018-08-27T05:16:48.018Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "grs80-ellipsoid",
+            "concept": [ "https://www.opengis.net/def/dggs/code/refmodel/GRS80" ],
+            "label_type": 0,
+            "label_text": "GRS80 Ellipsoid",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-08-27T05:18:05.647Z",
+            "modified": "2018-08-27T05:18:05.647Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "triangular-cell-type",
+            "concept": [ "https://www.opengis.net/def/dggs/code/celltype/Triangle" ],
+            "label_type": 0,
+            "label_text": "Triangular Cell Type",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-08-27T05:20:34.632Z",
+            "modified": "2018-08-27T05:20:34.632Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "square-cell-type",
+            "concept": [ "https://www.opengis.net/def/dggs/code/celltype/square" ],
+            "label_type": 0,
+            "label_text": "Square Cell type",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-08-27T05:21:17.308Z",
+            "modified": "2018-08-27T05:21:17.308Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "diamond-cell-type",
+            "concept": [ "https://www.opengis.net/def/dggs/code/celltype/Diamond" ],
+            "label_type": 0,
+            "label_text": "Diamond Cell Type",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-08-27T05:21:53.351Z",
+            "modified": "2018-08-27T05:21:53.351Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "snyder-projection",
+            "concept": [ "https://www.opengis.net/def/dggs/code/tessellationmethod/Snyder" ],
+            "label_type": 0,
+            "label_text": "Snyder projection",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-08-31T14:02:45.870Z",
+            "modified": "2018-08-31T14:02:45.870Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "healpix-projection",
+            "concept": [ "https://www.opengis.net/def/dggs/code/tessellationmethod/HealPIX" ],
+            "label_type": 0,
+            "label_text": "HealPIX projection",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-08-31T14:17:02.573Z",
+            "modified": "2018-08-31T14:17:02.573Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "rearranged-healpix-projection",
+            "concept": [ "https://www.opengis.net/def/dggs/code/tessellationmethod/rHealPIX" ],
+            "label_type": 0,
+            "label_text": "Rearranged HealPIX projection",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-08-31T14:17:02.681Z",
+            "modified": "2018-08-31T14:17:02.682Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "geodesic-cell-edge",
+            "concept": [ "https://www.opengis.net/def/dggs/code/celledgetype/geodesic"],
+            "label_type": 0,
+            "label_text": "Geodesic Cell Edge",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-08-31T15:00:39.377Z",
+            "modified": "2018-08-31T15:00:39.377Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "small-circle-cell-edge",
+            "concept": [ "https://www.opengis.net/def/dggs/code/celledgetype/small_circle"],
+            "label_type": 0,
+            "label_text": "Small Circle Cell Edge",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-08-31T15:00:39.452Z",
+            "modified": "2018-08-31T15:00:39.452Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "small-ellipse-cell-edge",
+            "concept": [ "https://www.opengis.net/def/dggs/code/celledgetype/small_ellipse" ],
+            "label_type": 0,
+            "label_text": "Small Ellipse Cell Edge",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-08-31T15:00:39.495Z",
+            "modified": "2018-08-31T15:00:39.495Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "projects-to-straight-line",
+            "concept": [ "https://www.opengis.net/def/dggs/code/celledgetype/staight_line" ],
+            "label_type": 0,
+            "label_text": "Projects to Straight Line",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-08-31T15:00:39.525Z",
+            "modified": "2018-08-31T15:00:39.525Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "gnomic-projection-of-polyhedral-faces",
+            "concept": [ "https://www.opengis.net/def/dggs/code/tessellationmethod/Gnomic" ],
+            "label_type": 0,
+            "label_text": "Gnomic Projection of Polyhedral Faces",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-09-04T15:16:11.333Z",
+            "modified": "2018-09-04T15:16:11.333Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "polyhedral-mapping-to-ellipsoid",
+            "concept": [ "https://www.opengis.net/def/dggs/code/tessellationmethod/polyhedral" ],
+            "label_type": 0,
+            "label_text": "Polyhedral Mapping to Ellipsoid",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-09-04T15:17:28.179Z",
+            "modified": "2018-09-04T15:17:28.179Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "pentagonal-celltype",
+            "concept": [ "https://www.opengis.net/def/dggs/code/celltype/pentagon" ],
+            "label_type": 0,
+            "label_text": "Pentagonal CellType",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-09-04T15:18:11.697Z",
+            "modified": "2018-09-04T15:18:11.697Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "truncated-icosahedron",
+            "concept": [ "https://www.opengis.net/def/dggs/code/basepoly/truncated_icosahedron" ],
+            "label_type": 0,
+            "label_text": "Truncated Icosahedron",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-09-04T15:19:40.991Z",
+            "modified": "2018-09-04T15:19:40.991Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "wgs84-version-g1762",
+            "concept": [ "https://www.opengis.net/def/dggs/code/refmodel/WGS84_G1762" ],
+            "label_type": 0,
+            "label_text": "WGS84 (Version G1762)",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-09-04T15:21:38.168Z",
+            "modified": "2018-09-04T15:21:38.168Z"
+        }
+    },
+    {
+        "model": "skosxl.label",
+        "pk": null,
+        "fields": {
+            "slug": "earth-centred-earth-fixed-geodetic-mapping",
+            "concept": [ "https://www.opengis.net/def/dggs/code/tessellationmethod/ECEF" ],
+            "label_type": 0,
+            "label_text": "Earth Centred Earth Fixed - Geodetic Mapping",
+            "language": "en",
+            "user": null,
+            "uri": "",
+            "author_uri": "",
+            "created": "2018-09-04T15:24:01.138Z",
+            "modified": "2018-09-04T15:24:01.138Z"
+        }
+    }
+
+
+]
