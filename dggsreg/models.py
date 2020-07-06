@@ -4,8 +4,11 @@ from django.db import models
 
 from skosxl.models import *
 
-from django.utils.encoding import python_2_unicode_compatible
-
+try:
+    from django.utils.encoding import python_2_unicode_compatible
+except:
+    from six import python_2_unicode_compatible
+    
 DEFS_BASE='https://www.opengis.net/def/dggs/code/'
 BASEPOLYHEDRON_CODELIST="".join((DEFS_BASE,"basepoly"))
 REFMODEL_CODELIST="".join((DEFS_BASE,"refmodel"))
@@ -25,21 +28,21 @@ class DGGSReg(models.Model):
                             help_text=u'Display name')
     basepoly = models.ForeignKey(Concept, 
                                  related_name='basepoly',
-                                 verbose_name="Base Polyhedron Type")
+                                 verbose_name="Base Polyhedron Type",on_delete=models.CASCADE)
     basepoly_ref = models.CharField(max_length=1000, 
                                     verbose_name="Base Polyhedron Reference Point", 
                                     help_text='Reference point location of primary face of base polyhedron (as 3D point in WKT syntax)')
     refmodel = models.ForeignKey(Concept, 
                                  related_name='refmodel',
                                  verbose_name="Earth Reference Model",
-                                 help_text='Reference Model for the Earth (or other planetary body)')
+                                 help_text='Reference Model for the Earth (or other planetary body)',on_delete=models.CASCADE)
     
     refinement_ratio = models.PositiveSmallIntegerField(default=9, 
                                                         help_text='refinement ratio of DGGS tesselations (e.g. 1:4, 1:9 etc...)')
     tessellation_method = models.ForeignKey(Concept, 
                                             related_name='polyhedralTessellation',
                                             verbose_name="Tessellation Method",
-                                            help_text='Tessellation method used')
+                                            help_text='Tessellation method used',on_delete=models.CASCADE)
     
     cellequalarea = models.BooleanField(default=True, 
                                         verbose_name="Cells have equal area", 
@@ -56,7 +59,7 @@ class DGGSReg(models.Model):
         return ( self.name )
     
     def __str__(self):
-        return self.name
+        return str(self.name)
     
     def clean(self,*args,**kwargs):
         
@@ -99,7 +102,7 @@ class DGGSRequirement(models.Model):
     reference = models.URLField(max_length=100,verbose_name='Link to normative resource', help_text='points to a file or directory of test resources used')
 
     def __str__(self):
-        return (self.name)
+        return str(self.name)
     
     def __unicode__(self):
         return ( self.name )
@@ -108,14 +111,14 @@ class DGGSRequirement(models.Model):
 @python_2_unicode_compatible   
 class DGGSConformanceTest(models.Model):
     """ model to register a conformance test """
-    requirement= models.ForeignKey(DGGSRequirement,verbose_name="Requirement tested")
-    dggs = models.ForeignKey(DGGSReg,verbose_name="DGGS tested")
+    requirement= models.ForeignKey(DGGSRequirement,verbose_name="Requirement tested",on_delete=models.CASCADE)
+    dggs = models.ForeignKey(DGGSReg,verbose_name="DGGS tested",on_delete=models.CASCADE)
     status = models.CharField(max_length=100,choices=TEST_STATUS, default='UNKNOWN', help_text='test status')
     notes = models.TextField(max_length=2000, blank=True, null=True )
     test_resource = models.URLField(max_length=100,blank=True, null=True ,verbose_name='Link tp resources used', help_text='points to a file or directory of test resources used')
   
     def __str__(self):
-        return ( " - ".join((self.requirement.name,self.dggs.name)))
+        return str( " - ".join((self.requirement.name,self.dggs.name)))
     
     def __unicode__(self):
         return ( " - ".join((self.requirement.name,self.dggs.name)))
@@ -145,24 +148,24 @@ class DGGSConformanceTest(models.Model):
 
 @python_2_unicode_compatible   
 class DGGSTessellation(models.Model):
-    dggs = models.ForeignKey(DGGSReg,verbose_name="DGGS tested")
+    dggs = models.ForeignKey(DGGSReg,verbose_name="DGGS tested", on_delete=models.CASCADE)
     refinement_level = models.PositiveSmallIntegerField(default=0, 
                                                         help_text='refinement level of DGGS hierarchy (e.g. 0, 1, 2, etc...)')
     
     celltype= models.ForeignKey(Concept, 
                                 related_name='celltype',
-                                verbose_name="Cell Type")
+                                verbose_name="Cell Type",on_delete=models.CASCADE)
     number_of_cells = models.PositiveSmallIntegerField(default=4, 
                                                         help_text='Number of cells of this CellType for this level in the hierarchy')
     
     celledgetype= models.ForeignKey(Concept, 
                                 related_name='celledgetype',
-                                verbose_name="Cell Edge Type")
+                                verbose_name="Cell Edge Type",on_delete=models.CASCADE)
     cellarea = models.FloatField(help_text='cell area for each level of refinement')
     cellarea_precision = models.FloatField(help_text='cell area precision for each level of refinement')
     
     def __str__(self):
-        return ( " - ".join((self.dggs.name, str(self.refinement_level))))
+        return str( " - ".join((self.dggs.name, str(self.refinement_level))))
     
     def __unicode__(self):
         return ( " - ".join((self.dggs.name, str(self.refinement_level))))
